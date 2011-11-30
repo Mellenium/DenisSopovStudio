@@ -23,6 +23,7 @@ Denis Sopov Studio
 Скопировать `wp-config-sample.php` в `wp-config.php`
 
 Изменить в `wp-config.php` следующие строки:
+
 ```
 
 /** Имя базы данных для WordPress */
