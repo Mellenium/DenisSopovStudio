@@ -410,14 +410,13 @@ textarea.inputtext {
 }
 
 textarea.inputtext {
-    width: 294px;
+    width: 178px;
     height: 53px;
     border: 0;
     color: #929292;
     background-color: #333;
     margin-left: 0px;
     margin-right: 0px;
-    width: 294px;
     margin-bottom: 0px;
     height: 53px;
     margin-top: 8px;
@@ -903,10 +902,10 @@ form.simpleForm label {
 }
 
 input.inputtext {
-    width: 273px;
+    width: 164px;
     height: 16px;
     border: 0;
-    color: #333333;
+    color: #fff;
     margin-top: 8px;
     padding: 2px 10px;
     background-color: #333333;
@@ -963,8 +962,8 @@ input.inputtext {
 
 input.submit {
     display: block;
-    background: url(../markup/images/bg/feedback-submit-bg.png) no-repeat 0 -43px;
-    width: 307px;
+    background: url(../markup/images/bg/index-feedback-submit-bg.png) no-repeat 0 -43px;
+    width: 194px;
     height: 43px;
     border: 0;
     color: #ffffff;
@@ -978,17 +977,7 @@ input.submit {
 
 input.submit:hover {
     display: block;
-    background: url(../markup/images/bg/feedback-submit-bg.png) no-repeat 0 0;
-    width: 307px;
-    height: 43px;
-    border: 0;
-    color: #ffffff;
-    padding: 10px 0;
-    margin-left: -9px;
-    font-size: 15px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
+    background: url(../markup/images/bg/index-feedback-submit-bg.png) no-repeat 0 -43px;
 }
 
 .fb-msg {
