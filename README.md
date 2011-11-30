@@ -18,7 +18,7 @@ Denis Sopov Studio
 
 Импортировать базу из [backup/database.sql](https://github.com/web4life/DenisSopovStudio/blob/master/backup/database.sql)
 
-Изменить url в базе данных командой `UPDATE wp_options SET '<урл_проекта>' WHERE option_name = 'home' OR option_name = 'siteurl';`
+Изменить url в базе данных командой `UPDATE wp_options SET option_value = '<урл_проекта>' WHERE option_name = 'home' OR option_name = 'siteurl';`
 
 Скопировать [wp-config-sample.php](https://github.com/web4life/DenisSopovStudio/blob/master/app/wp-config-sample.php) в `wp-config.php`
 
