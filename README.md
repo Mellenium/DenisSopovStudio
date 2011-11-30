@@ -14,16 +14,23 @@ Denis Sopov Studio
 Установка
 ----------
 
-* Создать базу данных `<имя_базы_данных>`
-* Импортировать базу из `/backup/database.sql`
-* Изменить url в базе данных командой `UPDATE wp_options SET option_value = replace(option_value,
- 'http://www.СТАРЫЙУРЛ.com', 'http://www.НОВЫЙУРЛ.com')
-WHERE option_name = 'home' OR option_name = 'siteurl';`
-* Перейти в админку Wordpress
-* Wordpress предложит создать файл wp-config.php
-* При создании в автоматическом режиме, необходимо заполнить необходимые поля:
-    база данных = `<имя_базы_данных>`
-    остальные поля заполняются пользователем
-* Зайти в админку Wodrpress
-* Активировать нужную тему `markup`
+Создать базу данных `<имя_базы_данных>`
 
+Импортировать базу из `/backup/database.sql`
+
+Изменить url в базе данных командой `UPDATE wp_options SET '<урл_проекта>' WHERE option_name = 'home' OR option_name = 'siteurl';`
+
+Скопировать `wp-config-sample.php` в `wp-config.php`
+
+Изменить в `wp-config.php` следующие строки:
+```
+
+/** Имя базы данных для WordPress */
+define('DB_NAME', '<имя_базы_данных>');
+
+/** Имя пользователя MySQL */
+define('DB_USER', '<имя_пользователя>');
+
+/** Пароль к базе данных MySQL */
+define('DB_PASSWORD', '<пароль_пользователя>');
+```
