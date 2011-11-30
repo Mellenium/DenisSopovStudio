@@ -16,11 +16,11 @@ Denis Sopov Studio
 
 Создать базу данных `<имя_базы_данных>`
 
-Импортировать базу из `/backup/database.sql`
+Импортировать базу из [backup/database.sql](backup/database.sql)
 
 Изменить url в базе данных командой `UPDATE wp_options SET '<урл_проекта>' WHERE option_name = 'home' OR option_name = 'siteurl';`
 
-Скопировать `wp-config-sample.php` в `wp-config.php`
+Скопировать [wp-config-sample.php](app/wp-config-sample.php) в `wp-config.php`
 
 Изменить в `wp-config.php` следующие строки:
 
