@@ -2,7 +2,7 @@
     <div id="copyright">2011 All rights reserved.</div>
     <div id="footer-menu">
         <?php wp_nav_menu( $args = array(
-  'menu'            => 'Top',              //(string) Название выводимого меню (указывается в админке при создании меню, приоритетнее чем указанное местоположение theme_location - если указано, то параметр theme_location игнорируется)
+  'menu'            => 'bottom',              //(string) Название выводимого меню (указывается в админке при создании меню, приоритетнее чем указанное местоположение theme_location - если указано, то параметр theme_location игнорируется)
   'container'       => 'div',           //(string) Контейнет меню. Обворачиватель ul. Указывается тег контейнера (по умолчанию в тег div)
   'container_class' => '',              //(string) class контейнера (div тега)
   'container_id'    => '',              //(string) id контейнера (div тега)
