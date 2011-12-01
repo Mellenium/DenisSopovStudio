@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de21d98c-88e8-41a0-8664-18288bac2ecd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php" afterPath="$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php" />
-    </list>
+    <list default="true" id="de21d98c-88e8-41a0-8664-18288bac2ecd" name="Default" comment="" />
     <ignored path="denis.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,7 +44,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="547" column="0" selection-start="10000" selection-end="10000" vertical-scroll-proportion="0.2791762">
+            <state line="544" column="18" selection-start="9972" selection-end="9972" vertical-scroll-proportion="0.2208238">
               <folding />
             </state>
           </provider>
@@ -311,7 +309,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="547" column="0" selection-start="10000" selection-end="10000" vertical-scroll-proportion="0.2791762">
+        <state line="544" column="18" selection-start="9972" selection-end="9972" vertical-scroll-proportion="0.2208238">
           <folding />
         </state>
       </provider>
