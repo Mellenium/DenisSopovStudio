@@ -224,15 +224,9 @@ function portfolio_custom_columns($column)
     }
     return;
 }
-
 add_shortcode('related_posts', 'related_posts_shortcode');
-
-
 add_theme_support('post-thumbnails');
 
-?>
-
-<?php
 //$option_name = 'myhack_extraction_length' ;
 //$newvalue = '255' ;
 //
