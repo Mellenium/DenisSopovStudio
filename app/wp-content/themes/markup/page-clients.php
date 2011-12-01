@@ -7,12 +7,6 @@
     <div id="content-internal-center">
         <div style="clear:both;">
             <table class="blog-clients" cellpadding="0" cellspacing="0">
-<!--                <tr>-->
-<!--                    <td valign="top">-->
-<!--                        <br>-->
-<!--                        <br>-->
-<!--                    </td>-->
-<!--                </tr>-->
                     <td valign="top">
                         <div id="content">
                             <ul id="blog-clients">

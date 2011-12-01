@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de21d98c-88e8-41a0-8664-18288bac2ecd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php" afterPath="$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/wp-content/themes/markup/style.css" afterPath="$PROJECT_DIR$/app/wp-content/themes/markup/style.css" />
     </list>
     <ignored path="denis.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,19 +34,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page-clients.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="page-clients.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="31" selection-start="456" selection-end="458" vertical-scroll-proportion="0.22051887">
+            <state line="9" column="0" selection-start="354" selection-end="354" vertical-scroll-proportion="-5.8846154">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="555" column="21" selection-start="10150" selection-end="10150" vertical-scroll-proportion="0.0">
+            <state line="547" column="0" selection-start="10000" selection-end="10000" vertical-scroll-proportion="0.2791762">
               <folding />
             </state>
           </provider>
@@ -64,8 +62,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/wp-content/themes/markup/page-contact.php" />
-        <option value="$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php" />
         <option value="$PROJECT_DIR$/app/wp-content/themes/markup/style.css" />
+        <option value="$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php" />
       </list>
     </option>
   </component>
@@ -304,16 +302,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/style.css">
+    <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="555" column="21" selection-start="10150" selection-end="10150" vertical-scroll-proportion="0.0">
+        <state line="9" column="0" selection-start="354" selection-end="354" vertical-scroll-proportion="-5.8846154">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/page-clients.php">
+    <entry file="file://$PROJECT_DIR$/app/wp-content/themes/markup/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="31" selection-start="456" selection-end="458" vertical-scroll-proportion="0.22051887">
+        <state line="547" column="0" selection-start="10000" selection-end="10000" vertical-scroll-proportion="0.2791762">
           <folding />
         </state>
       </provider>
