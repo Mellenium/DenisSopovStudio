@@ -11,9 +11,7 @@
             <div class="email"><span class="yellow">Email</span><?php echo $current_user->user_email; ?></div>
             <div style="clear:both;"></div>
         </div>
-        
-        <?php echo do_shortcode('[contact-form-7 id="23" title="Quick contact"]') ?>
-
+        <?php echo do_shortcode('[contact-form-7 id="75" title="Contact"]') ?>
         <div style="clear:both;">
         </div>
     </div>
