@@ -46,7 +46,6 @@
 <div id="content-internal">
     <div id="content-internal-header">
         <div id="content-internal-header-title"></div>
-        <div id="back-link" align="center"><a href='javascript:history.go(-1)'>< Back</a></div>
         <div style="clear:both"></div>
     </div>
 
