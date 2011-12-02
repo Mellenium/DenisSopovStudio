@@ -2,7 +2,6 @@
 <div id="content-internal">
     <div id="content-internal-header">
         <div id="content-internal-header-title">Contacts</div>
-        <div id="back-link" align="center"><a href='javascript:history.go(-1)'>← Back</a></div>
         <div style="clear:both"></div>
     </div>
     <div id="content-internal-center">
@@ -12,9 +11,7 @@
             <div class="email"><span class="yellow">Email</span><?php echo $current_user->user_email; ?></div>
             <div style="clear:both;"></div>
         </div>
-        
-        <?php echo do_shortcode('[contact-form-7 id="23" title="Quick contact"]') ?>
-
+        <?php echo do_shortcode('[contact-form-7 id="75" title="Contact"]') ?>
         <div style="clear:both;">
         </div>
     </div>
