@@ -28,7 +28,7 @@
             'container_class' => '', //(string) class контейнера (div тега)
             'container_id' => '', //(string) id контейнера (div тега)
             'menu_class' => 'menu', //(string) class самого меню (ul тега)
-            'menu_id' => '', //(string) id самого меню (ul тега)
+            'menu_id' => 'ccc', //(string) id самого меню (ul тега)
             'echo' => true, //(boolean) Выводить на экран или возвращать для обработки
             'fallback_cb' => 'wp_page_menu', //(string) Используемая (резервная) функция, если меню не существует (не удалось получить)
             'before' => '', //(string) Текст перед <a> каждой ссылки

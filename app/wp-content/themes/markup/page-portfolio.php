@@ -7,7 +7,6 @@
     <div id="our-works-center">
         <ul id="mainlevel">
 
-<<<<<<< HEAD
             <li><a href="<?php bloginfo('url'); ?>"
                    style="background:url(<?php bloginfo('template_directory'); ?>/images/ex_295_7.jpg) no-repeat center center;" class="mainlevel"><span>Architectural exteriors</span></a>
             </li>
@@ -29,7 +28,7 @@
             <li><a href="<?php bloginfo('url'); ?>" style="background:url(<?php bloginfo('template_directory'); ?>/images/char_295_3.jpg) no-repeat center center;"
                    class="mainlevel"><span>Characters</span></a></li>
             <li><a href="<?php bloginfo('url'); ?>" style="background:url(<?php bloginfo('template_directory'); ?>/images/stereo_6.jpg) no-repeat center center;"
-=======
+
             <li><a href="/index.php/architectural-exteriors"
                    style="background:url(<?php bloginfo('template_directory'); ?>/images/ex_295_7.jpg) no-repeat center center;"
                    class="mainlevel"><span>Architectural exteriors</span></a>
@@ -60,7 +59,7 @@
                    class="mainlevel"><span>Characters</span></a></li>
             <li><a href="/index.php/stereo-3d"
                    style="background:url(<?php bloginfo('template_directory'); ?>/images/stereo_6.jpg) no-repeat center center;"
->>>>>>> issue-22
+
                    class="mainlevel"><span>Stereo 3D</span></a></li>
         </ul>
         <div style="clear:both;"></div>
