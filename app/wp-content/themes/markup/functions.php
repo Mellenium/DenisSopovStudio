@@ -294,3 +294,11 @@ function catch_that_image()
     }
     return $first_img;
 }
+
+function no_link_current_page( $p ) {
+    return preg_replace( '%((current_page_item|current-menu-item)[^<]+)[^>]+>([^<]+)</a>%', '$1<span>$3</span>', $p, 1 );
+}
+
+add_filter( 'wp_list_pages', 'no_link_current_page' );
+add_filter( 'wp_nav_menu',   'no_link_current_page' );
+add_filter( 'wp_page_menu',   'no_link_current_page' );

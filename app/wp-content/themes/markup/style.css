@@ -1191,8 +1191,14 @@ input.submit:hover {
 div#flexicontent .buttons {
     float: right;
 }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> issue-22
+#nav-top ul li span{
+    display: block;
+    width: 109px;
+    height: 28px;
+    background: url(../markup/images/bg/nav-top-button.png) 0px 43px;
+    margin-right: -6px;
+    text-decoration: none;
+    text-align: center;
+    padding-top: 14px;
+}
