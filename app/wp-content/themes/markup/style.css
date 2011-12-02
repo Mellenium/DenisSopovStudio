@@ -30,9 +30,11 @@ table td {
     padding: 0;
 }
 
-.yellow {
+.bottom-title a.yellow {
     text-align: center;
     color: #F39200;
+	text-decoration:none;
+	text-transform:uppercase;
 }
 
 body {

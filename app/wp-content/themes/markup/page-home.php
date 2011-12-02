@@ -70,10 +70,18 @@
 
                                 <tr>
                                     <td valign="top" colspan="2">
-                                        <div class="bottom-title"><span class="yellow">A FEW WORDS</span> ABOUT US</div>
-                                        <p><strong>-</strong><br/><strong>-</strong></p>
-
-                                        <p>-</p></td>
+                                        
+                                     	<?php		
+											$slug = 'outsource-development';									
+											$page = get_page_by_path('outsource-development');
+											echo '<div class="bottom-title"><a class="yellow" href="'.get_page_link('$page').'">';
+											echo $page->post_title;
+											echo '</a></div>';
+											echo '<div class="entry">';
+								            echo $page->post_content;
+								            echo '</div>'; 
+										?>
+									</td>	
                                 </tr>
 
 
@@ -87,11 +95,18 @@
 
                                 <tr>
                                     <td valign="top" colspan="2">
-                                        <div class="bottom-title"><span class="yellow">WHY</span> CHOOSE US?</div>
-                                        <p><strong>-</strong></p>
-
-                                        <p>-</p>
-                                        <br/></td>
+                                        <?php		
+											$slug = 'why_choose_us';									
+											$page = get_page_by_path('why_choose_us');
+											echo '<div class="bottom-title"><a class="yellow" href="'.get_page_link('$page').'">';
+											echo $page->post_title;
+											echo '</a></div>';
+											echo '<div class="entry">';
+								            echo $page->post_content;
+								            echo '</div>'; 
+										?>
+                                     	
+									</td>
                                 </tr>
 
 
@@ -106,12 +121,18 @@
 
                                 <tr>
                                     <td valign="top" colspan="2">
-                                        <div class="bottom-title"><span class="yellow">OUTSOURCE</span> DEVELOPMENT
-                                        </div>
-                                        <p><strong>-</strong></p>
-
-                                        <p>We -</p>
-                                        <br/></td>
+                                        <?php		
+											$slug = 'A FEW WORDS ABOUT US';									
+											$page = get_page_by_path('words');
+											echo '<div class="bottom-title"><a class="yellow" href="'.get_page_link('$page').'">';
+											echo $page->post_title;
+											echo '</a></div>';
+											echo '<div class="entry">';
+								            echo $page->post_content;
+								            echo '</div>'; 
+										?>
+                                     	
+									</td>	
                                 </tr>
 
 
