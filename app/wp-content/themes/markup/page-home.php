@@ -17,37 +17,29 @@
     <div id="our-works-header">Our <span class="yellow">works</span></div>
     <div id="our-works-center">
         <ul id="mainlevel">
-            <li><a href="/index.php/architectural-exteriors"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/ex_295_7.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Architectural exteriors</span></a>
-            </li>
-            <li><a href="/index.php/architectural-interiors"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/int_295_3.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Architectural interiors</span></a>
-            </li>
-            <li><a href="/index.php/objects"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/obj_295_15.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Objects</span></a></li>
-            <li><a href="/index.php/machinery"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/mach_295_1.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Machinery</span></a></li>
-            <li><a href="/index.php/animations"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/art_250_1.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Animations</span></a></li>
-            <li><a href="/index.php/characters-animations"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/charanim_7.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Characters animations</span></a>
-            </li>
-            <li><a href="/index.php/effects-a-commercial"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/anim1_250_4.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Effects &amp; commercial</span></a>
-            </li>
-            <li><a href="/index.php/characters"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/char_295_3.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Characters</span></a></li>
-            <li><a href="/index.php/stereo-3d"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/stereo_6.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Stereo 3D</span></a></li>
+
+            <?php $terms = get_terms("rubriki");
+            $count = count($terms);
+            if ($count > 0) {
+                foreach ($terms as $term) {
+                    $args = array(
+                        'numberposts' => 1,
+                        'post_type' => 'portfolioui',
+                        'portfolioui_category' => $term->name,
+                        'post_status' => 'publish');
+
+                    echo "<li><a>";?>
+                    <?php $posts_array = get_posts($args);
+                    foreach ($posts_array as $my_post) : setup_postdata($my_post);?>
+                        <a href="<?php the_permalink();?>" class="mainlevel">
+                        <?php the_post_thumbnail(array(295, 172)); ?>
+                            <img src="<?php echo catch_that_image() ?>">
+
+                        <?php endforeach; ?>
+                    <?php echo "<span>" . $term->name . "</span></a></li>";
+                }
+            }?>
+
         </ul>
         <div style="clear:both;"></div>
     </div>
