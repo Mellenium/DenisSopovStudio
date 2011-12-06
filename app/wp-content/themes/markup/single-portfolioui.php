@@ -1,7 +1,4 @@
 <?php get_header(); ?>
-
-
-
 <div id="content-internal">
     <div id="content-internal-center">
 		<div id="right-top">
@@ -18,8 +15,8 @@
 	</div>
 
 <div class="topblock">
-    <div class="image field_pImage">
-        <?php the_content(); ?>
+    <div class="image">
+        <?php the_post_thumbnail(); ?>
         <div class="clear"></div>
     </div>
 </div>
@@ -32,7 +29,7 @@
     <div class="contentpaneopen-portfolio-inherit-page">
         <p class="yellow">
             Client </p>
-        <p><?php echo get_post_meta($post->ID, "Client", true);?></p></div>
+        <p><?php echo get_post_meta($post->ID, "Clients", true);?></p></div>
 
     <div class="contentpaneopen-portfolio-inherit-page">
         <p class="yellow">

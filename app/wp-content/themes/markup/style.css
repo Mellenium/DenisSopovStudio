@@ -576,7 +576,7 @@ input.submit:hover {
 
 .contentpaneopen-portfolio-inherit-page {
     position: relative;
-    top: -53px;
+ 
     width: 968px;
     margin: auto;
 }
@@ -1202,4 +1202,15 @@ div#flexicontent .buttons {
     text-decoration: none;
     text-align: center;
     padding-top: 14px;
+}
+
+div.topblock .image {
+   border: 0px solid silver;
+margin-right: 0px;
+line-height: 0px;
+text-align: center;
+margin-bottom: 20px;
+}
+div.topblock .image img {
+border: 1px solid white;
 }
