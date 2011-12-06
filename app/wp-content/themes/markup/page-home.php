@@ -31,7 +31,8 @@
                     echo "<li><a>";?>
                     <?php $posts_array = get_posts($args);
                     foreach ($posts_array as $my_post) : setup_postdata($my_post);?>
-                        <a href="<?php the_permalink();?>" class="mainlevel">
+
+                        <a href="<?php the_category($term->name);?>" class="mainlevel">
                         <?php the_post_thumbnail(array(295, 172)); ?>
 <!--                            <img src="--><?php //echo catch_that_image() ?><!--">-->
 
