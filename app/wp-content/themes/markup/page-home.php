@@ -33,7 +33,7 @@
                     foreach ($posts_array as $my_post) : setup_postdata($my_post);?>
                         <a href="<?php the_permalink();?>" class="mainlevel">
                         <?php the_post_thumbnail(array(295, 172)); ?>
-                            <img src="<?php echo catch_that_image() ?>">
+<!--                            <img src="--><?php //echo catch_that_image() ?><!--">-->
 
                         <?php endforeach; ?>
                     <?php echo "<span>" . $term->name . "</span></a></li>";

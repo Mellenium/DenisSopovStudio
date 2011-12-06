@@ -12,7 +12,7 @@
             <?php while (have_posts()) : the_post(); ?>
 
             <li><a href="<?php the_permalink() ?>" class="mainlevel">
-                <img src="<?php echo catch_that_image() ?>">
+                <?php the_post_thumbnail(array(295, 172)); ?>
                  <span><?php the_title(); ?></span></a></li>
             <?php endwhile; ?>
 
