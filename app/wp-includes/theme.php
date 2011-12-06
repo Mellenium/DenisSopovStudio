@@ -786,7 +786,7 @@ function get_archive_template() {
 
 	if ( $post_type )
 		$templates[] = "archive-{$post_type}.php";
-	$templates[] = 'archive.php';
+	$templates[] = 'category.php';
 
 	return get_query_template( 'archive', $templates );
 }
@@ -1005,7 +1005,7 @@ function get_single_template() {
 	$templates = array();
 
 	$templates[] = "single-{$object->post_type}.php";
-	$templates[] = "single.php";
+	$templates[] = "single-portfolioui.php";
 
 	return get_query_template( 'single', $templates );
 }

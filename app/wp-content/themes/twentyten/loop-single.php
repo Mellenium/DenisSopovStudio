@@ -7,7 +7,7 @@
  * http://codex.wordpress.org/Template_Tags to understand
  * the tags used in it.
  *
- * This can be overridden in child themes with loop-single.php.
+ * This can be overridden in child themes with loop-single-portfolioui.php.
  *
  * @package WordPress
  * @subpackage Twenty_Ten
