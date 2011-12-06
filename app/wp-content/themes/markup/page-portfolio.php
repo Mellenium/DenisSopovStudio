@@ -10,19 +10,11 @@
            <?php query_posts('post_type=portfolio&portfolio-category=architectural-exteriors'); ?>
 
             <?php while (have_posts()) : the_post(); ?>
-<<<<<<< HEAD
 
             <li><a href="<?php the_permalink() ?>" class="mainlevel">
                 <?php the_post_thumbnail(array(295, 172)); ?>
                  <span><?php the_title(); ?></span></a></li>
-=======
-            <li><a href="<?php the_permalink() ?>" class="mainlevel"> <img src="<?php echo catch_that_image() ?>">
-                <span>
-                <?php the_title(); ?>
-            </span>
-            </a>
-            </li>
->>>>>>> issue-10
+
             <?php endwhile; ?>
             <?php wp_reset_query(); ?>
         </ul>
