@@ -26,9 +26,9 @@
             <td width="500" valign="top">
                 <!-- Выводим на страницу index -->
                 <div id="index">
-                    <?php query_posts( 'post_type=Clients')?>
 
-                   
+                    <?php query_posts( 'post_type=Clients')?>
+                 
 
                     <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>

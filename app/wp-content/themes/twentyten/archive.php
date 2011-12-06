@@ -49,7 +49,7 @@ get_header(); ?>
 
 	/* Run the loop for the archives page to output the posts.
 	 * If you want to overload this in a child theme then include a file
-	 * called loop-archive.php and that will be used instead.
+	 * called loop-category.php and that will be used instead.
 	 */
 	 get_template_part( 'loop', 'archive' );
 ?>

@@ -619,7 +619,7 @@ function wp_title($sep = '&raquo;', $display = true, $seplocation = '') {
 /**
  * Display or retrieve page title for post.
  *
- * This is optimized for single.php template file for displaying the post title.
+ * This is optimized for single-portfolioui.php template file for displaying the post title.
  *
  * It does not support placing the separator after the title, but by leaving the
  * prefix parameter empty, you can set the title separator manually. The prefix
@@ -648,7 +648,7 @@ function single_post_title($prefix = '', $display = true) {
 /**
  * Display or retrieve title for a post type archive.
  *
- * This is optimized for archive.php and archive-{$post_type}.php template files
+ * This is optimized for category.php and archive-{$post_type}.php template files
  * for displaying the title of the post type.
  *
  * @since 3.1.0
