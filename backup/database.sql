@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Дек 06 2011 г., 16:13
+-- Время создания: Дек 06 2011 г., 17:19
 -- Версия сервера: 5.5.8
 -- Версия PHP: 5.3.5
 
@@ -238,7 +238,7 @@ INSERT INTO `wp_options` (`option_id`, `blog_id`, `option_name`, `option_value`,
 (101, 0, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
 (102, 0, 'sidebars_widgets', 'a:2:{s:19:"wp_inactive_widgets";a:13:{i:0;s:7:"pages-2";i:1;s:10:"calendar-2";i:2;s:7:"links-2";i:3;s:6:"text-2";i:4;s:5:"rss-2";i:5;s:11:"tag_cloud-2";i:6;s:10:"nav_menu-2";i:7;s:8:"search-2";i:8;s:14:"recent-posts-2";i:9;s:17:"recent-comments-2";i:10;s:10:"archives-2";i:11;s:12:"categories-2";i:12;s:6:"meta-2";}s:13:"array_version";i:3;}', 'yes'),
 (103, 0, 'cron', 'a:4:{i:1321286417;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1321286425;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1321286781;a:1:{s:8:"do_pings";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:2:{s:8:"schedule";b:0;s:4:"args";a:0:{}}}}s:7:"version";i:2;}', 'yes'),
-(104, 0, '_transient_doing_cron', '1323184350', 'yes'),
+(104, 0, '_transient_doing_cron', '1323188314', 'yes'),
 (105, 0, '_transient_random_seed', '87d06a72a611bf09474b7eda8330b201', 'yes'),
 (106, 0, 'auth_salt', '&x-L(K|.Tq*x[Bn,c0nIPx1pqto5N8gHT`:v_4<?c|3=//9tei{YcZRk5!|_VG?j', 'yes'),
 (107, 0, 'logged_in_salt', 'P[:Cs1C_~3PsU5<^U_Y<UJEF?-$}@_z<H):-@<^qF>~0D,i:b!L#]-PfV-6G#(Be', 'yes'),
@@ -502,7 +502,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (210, 119, '_thumbnail_id', '120'),
 (211, 119, 'Description', 'My description'),
 (212, 121, '_edit_last', '1'),
-(213, 121, '_edit_lock', '1323181293:1'),
+(213, 121, '_edit_lock', '1323187436:1'),
 (214, 121, 'Technologies', 'my Technologies'),
 (215, 121, 'Clients', 'my Clients'),
 (216, 121, 'Description', 'my Description'),
@@ -526,7 +526,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (234, 126, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"750";s:6:"height";s:3:"422";s:14:"hwstring_small";s:23:"height=''72'' width=''128''";s:4:"file";s:19:"2011/12/art_750.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:19:"art_750-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:19:"art_750-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
 (235, 125, '_thumbnail_id', '126'),
 (236, 127, '_edit_last', '1'),
-(237, 127, '_edit_lock', '1323181674:1'),
+(237, 127, '_edit_lock', '1323187472:1'),
 (238, 127, 'Technologies', 'fhryertsjdg'),
 (239, 127, 'Clients', 'dfhuikryhtyjre67u3u'),
 (240, 127, 'Description', 'ffdktrurtjetn'),
@@ -617,7 +617,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=156 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=157 ;
 
 --
 -- Дамп данных таблицы `wp_posts`
@@ -692,7 +692,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (117, 1, '2011-12-06 14:12:25', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:12:25', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=117', 0, 'portfolio', '', 0),
 (119, 1, '2011-12-06 14:19:05', '2011-12-06 14:19:05', '', 'House night', '', 'publish', 'closed', 'closed', '', 'house-night', '', '', '2011-12-06 14:19:05', '2011-12-06 14:19:05', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=119', 0, 'portfolio', '', 0),
 (120, 1, '2011-12-06 14:18:00', '2011-12-06 14:18:00', '', 'ex_900_8', '', 'inherit', 'open', 'open', '', 'ex_900_8-3', '', '', '2011-12-06 14:18:00', '2011-12-06 14:18:00', '', 119, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg', 0, 'attachment', 'image/jpeg', 0),
-(121, 1, '2011-12-06 14:21:32', '2011-12-06 14:21:32', '', 'House dey', '', 'publish', 'closed', 'closed', '', 'house-dey', '', '', '2011-12-06 14:21:32', '2011-12-06 14:21:32', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=121', 0, 'portfolio', '', 0),
+(121, 1, '2011-12-06 14:21:32', '2011-12-06 14:21:32', '', 'House day', '', 'publish', 'closed', 'closed', '', 'house-dey', '', '', '2011-12-06 16:03:55', '2011-12-06 16:03:55', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=121', 0, 'portfolio', '', 0),
 (122, 1, '2011-12-06 14:21:19', '2011-12-06 14:21:19', '', 'ex_900_7', '', 'inherit', 'open', 'open', '', 'ex_900_7-3', '', '', '2011-12-06 14:21:19', '2011-12-06 14:21:19', '', 121, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_7.jpg', 0, 'attachment', 'image/jpeg', 0),
 (123, 1, '2011-12-06 14:24:22', '2011-12-06 14:24:22', '', 'Interior', '', 'publish', 'closed', 'closed', '', 'interior', '', '', '2011-12-06 14:24:22', '2011-12-06 14:24:22', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=123', 0, 'portfolio', '', 0),
 (124, 1, '2011-12-06 14:24:00', '2011-12-06 14:24:00', '', 'anim1_250_4', '', 'inherit', 'open', 'open', '', 'anim1_250_4-2', '', '', '2011-12-06 14:24:00', '2011-12-06 14:24:00', '', 123, 'http://localhost/denis/app/wp-content/uploads/2011/12/anim1_250_41.jpg', 0, 'attachment', 'image/jpeg', 0),
@@ -716,7 +716,8 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (152, 1, '2011-12-06 15:06:59', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 15:06:59', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=client&p=152', 0, 'client', '', 0),
 (153, 1, '2011-12-06 15:08:25', '2011-12-06 15:08:25', '', 'Ferrari', '', 'publish', 'closed', 'closed', '', 'ferrari', '', '', '2011-12-06 15:10:51', '2011-12-06 15:10:51', '', 0, 'http://localhost/denis/app/?post_type=client&#038;p=153', 0, 'client', '', 0),
 (154, 1, '2011-12-06 15:10:18', '2011-12-06 15:10:18', '', 'Mercedes', '', 'publish', 'closed', 'closed', '', 'mercedes', '', '', '2011-12-06 15:10:35', '2011-12-06 15:10:35', '', 0, 'http://localhost/denis/app/?post_type=client&#038;p=154', 0, 'client', '', 0),
-(155, 1, '2011-12-06 15:11:45', '2011-12-06 15:11:45', '', 'Adidas', '', 'publish', 'closed', 'closed', '', 'adidas', '', '', '2011-12-06 15:11:45', '2011-12-06 15:11:45', '', 0, 'http://localhost/denis/app/?post_type=client&#038;p=155', 0, 'client', '', 0);
+(155, 1, '2011-12-06 15:11:45', '2011-12-06 15:11:45', '', 'Adidas', '', 'publish', 'closed', 'closed', '', 'adidas', '', '', '2011-12-06 15:11:45', '2011-12-06 15:11:45', '', 0, 'http://localhost/denis/app/?post_type=client&#038;p=155', 0, 'client', '', 0),
+(156, 1, '2011-12-06 16:03:42', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 16:03:42', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=156', 0, 'portfolio', '', 0);
 
 -- --------------------------------------------------------
 
