@@ -7,7 +7,7 @@
    <div id="content-internal-center">
         <ul id="mainlevel">
 
-           <?php query_posts('post_type=portfolioui', 'category_name=architectural-exteriors'); ?>
+           <?php query_posts('post_type=portfolio&portfolio-category=architectural-exteriors'); ?>
 
             <?php while (have_posts()) : the_post(); ?>
 
@@ -20,19 +20,6 @@
             </ul>
 
     <!-- / featured post -->
-
-            
-            <li><a href="/index.php/effects-a-commercial"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/anim1_250_4.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Effects &amp; commercial</span></a>
-            </li>
-            <li><a href="/index.php/characters"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/char_295_3.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Characters</span></a></li>
-            <li><a href="/index.php/stereo-3d"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/stereo_6.jpg) no-repeat center center;"
-
-                   class="mainlevel"><span>Stereo 3D</span></a></li>
 
         <div style="clear:both;"></div>
     </div>

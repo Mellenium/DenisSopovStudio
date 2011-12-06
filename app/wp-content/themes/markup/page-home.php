@@ -18,24 +18,16 @@
     <div id="our-works-center">
         <ul id="mainlevel">
 
-            <?php $terms = get_terms("rubriki");
+            <?php $terms = get_terms("portfolio-category");
             $count = count($terms);
             if ($count > 0) {
                 foreach ($terms as $term) {
-                    $args = array(
-                        'numberposts' => 1,
-                        'post_type' => 'portfolioui',
-                        'portfolioui_category' => $term->name,
-                        'post_status' => 'publish');
-
-                    echo "<li><a>";?>
-                    <?php $posts_array = get_posts($args);
-                    foreach ($posts_array as $my_post) : setup_postdata($my_post);?>
-                        <a href="<?php the_permalink();?>" class="mainlevel">
+                    echo "<li><a href='#'>";?>
+                    <?php query_posts('post_type=portfolio&portfolio-category='.$term->slug.'&posts_per_page=1'); ?>
+                    <?php while (have_posts()) : the_post(); ?>
                         <?php the_post_thumbnail(array(295, 172)); ?>
-<!--                            <img src="--><?php //echo catch_that_image() ?><!--">-->
-
-                        <?php endforeach; ?>
+                    <?php endwhile; ?>
+                    <?php wp_reset_query(); ?>
                     <?php echo "<span>" . $term->name . "</span></a></li>";
                 }
             }?>

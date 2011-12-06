@@ -10,12 +10,12 @@
                 <td valign="top">
                     <div id="content">
                         <ul id="blog-clients">
-                            <?php query_posts('post_type=Clients')?>
+                            <?php query_posts('post_type=client')?>
                             <?php if (have_posts()) : ?>
-                            <?php while (have_posts()) : the_post(); ?>
+                            <?php while (have_posts()) : the_post();  ?>
                                 <li>
                                     <p style="text-align: center;" class="yellow"><?php the_title();?></p>
-                                    <img src="<?php echo catch_that_image() ?>">
+                                    <?php echo the_post_thumbnail(); ?>
 
                                     <p style="text-align: center;">
 
