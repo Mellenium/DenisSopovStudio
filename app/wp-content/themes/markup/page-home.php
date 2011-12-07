@@ -95,7 +95,7 @@
                                 <tr>
                                     <td valign="top" colspan="2">
                                         <?php		
-											$slug = 'why_choose_us';									
+											$slug = 'why-choose-us';									
 											$page = get_page_by_path('why_choose_us');
 											echo '<div class="bottom-title"><a class="yellow" href="'.get_page_link('$page').'">';
 											echo $page->post_title;
@@ -121,7 +121,7 @@
                                 <tr>
                                     <td valign="top" colspan="2">
                                         <?php		
-											$slug = 'A FEW WORDS ABOUT US';									
+											$slug = 'words';									
 											$page = get_page_by_path('words');
 											echo '<div class="bottom-title"><a class="yellow" href="'.get_page_link('$page').'">';
 											echo $page->post_title;
