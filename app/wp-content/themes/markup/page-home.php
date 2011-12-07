@@ -89,7 +89,7 @@
                                     <td valign="top" colspan="2">
                                         <?php		
 											$slug = 'why-choose-us';									
-											$page = get_page_by_path('why_choose_us');
+											$page = get_page_by_path('why-choose-us');
 											echo '<div class="bottom-title"><a class="yellow" href="'.get_page_link('$page').'">';
 											echo $page->post_title;
 											echo '</a></div>';
