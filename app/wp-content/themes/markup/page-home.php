@@ -1,17 +1,6 @@
 <?php get_header(); ?>
 
-<div id="sliderr">
-    <div class="slider-wrapper theme-default">
-        <div class="ribbon"></div>
-        <div id="slider" class="nivoSlider">
-            <img src="<?php bloginfo('template_directory'); ?>/images/banners/art_750.jpg" alt=""/></a>
-            <img src="<?php bloginfo('template_directory'); ?>/images/banners/art_750_3.jpg" alt=""/></a>
-            <img src="<?php bloginfo('template_directory'); ?>/images/banners/art_4_750.jpg" alt=""/></a>
-        </div>
-        <div id="htmlcaption" class="nivo-html-caption">
-        </div>
-    </div>
-</div>
+<?php echo do_shortcode("[CU3ER slider='1']"); ?>
 
 <div id="our-works">
     <div id="our-works-header">Our <span class="yellow">works</span></div>
