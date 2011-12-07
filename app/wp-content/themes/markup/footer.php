@@ -1,6 +1,7 @@
 <div id="footer">
     <div id="copyright">2011 All rights reserved.</div>
     <div id="footer-menu">
+
         <?php wp_nav_menu( $args = array(
   'menu'            => 'bottom',              //(string) Название выводимого меню (указывается в админке при создании меню, приоритетнее чем указанное местоположение theme_location - если указано, то параметр theme_location игнорируется)
   'container'       => 'div',           //(string) Контейнет меню. Обворачиватель ul. Указывается тег контейнера (по умолчанию в тег div)
@@ -18,12 +19,8 @@
   'walker'          => '',                //(object) Класс собирающий меню. Default: new Walker_Nav_Menu
   'theme_location'  => '')             //(string) Расположение меню в шаблоне. (указывается ключь которым было зарегистрировано меню в функции register_nav_menus
                         );?>
-        
-    </div>
+       </div>
 </div>
-
-
-
 <?php wp_footer(); ?>
 </body>
 </html>

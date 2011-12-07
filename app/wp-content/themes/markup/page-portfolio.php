@@ -1,35 +1,26 @@
 <?php get_header(); ?>
 <div id="content-internal">
     <div id="content-internal-header">
-    	<div id="content-internal-header-title">Portfolio</div>
+        <div id="content-internal-header-title">Portfolio</div>
         <div style="clear:both"></div>
-	</div>
-    <div id="our-works-center">
-                <ul id="mainlevel">
+    </div>
+    <div id="content-internal-center">
+        <ul id="mainlevel">
 
-            <li><a href="<?php bloginfo('url'); ?>"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/ex_295_7.jpg) no-repeat center center;" class="mainlevel"><span>Architectural exteriors</span></a>
-            </li>
-            <li><a href="<?php bloginfo('url'); ?>"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/int_295_3.jpg) no-repeat center center;" class="mainlevel"><span>Architectural interiors</span></a>
-            </li>
-            <li><a href="<?php bloginfo('url'); ?>" style="background:url(<?php bloginfo('template_directory'); ?>/images/obj_295_15.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Objects</span></a></li>
-            <li><a href="<?php bloginfo('url'); ?>" style="background:url(<?php bloginfo('template_directory'); ?>/images/mach_295_1.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Machinery</span></a></li>
-            <li><a href="<?php bloginfo('url'); ?>" style="background:url(<?php bloginfo('template_directory'); ?>/images/art_250_1.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Animations</span></a></li>
-            <li><a href="<?php bloginfo('url'); ?>"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/charanim_7.jpg) no-repeat center center;" class="mainlevel"><span>Characters animations</span></a>
-            </li>
-            <li><a href="<?php bloginfo('url'); ?>"
-                   style="background:url(<?php bloginfo('template_directory'); ?>/images/anim1_250_4.jpg) no-repeat center center;" class="mainlevel"><span>Effects &amp; commercial</span></a>
-            </li>
-            <li><a href="<?php bloginfo('url'); ?>" style="background:url(<?php bloginfo('template_directory'); ?>/images/char_295_3.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Characters</span></a></li>
-            <li><a href="<?php bloginfo('url'); ?>" style="background:url(<?php bloginfo('template_directory'); ?>/images/stereo_6.jpg) no-repeat center center;"
-                   class="mainlevel"><span>Stereo 3D</span></a></li>
+           <?php query_posts('post_type=portfolio&portfolio-category=architectural-exteriors'); ?>
+
+            <?php while (have_posts()) : the_post(); ?>
+
+            <li><a href="<?php the_permalink() ?>" class="mainlevel">
+                <?php the_post_thumbnail(array(295, 172)); ?>
+                 <span><?php the_title(); ?></span></a></li>
+
+            <?php endwhile; ?>
+            <?php wp_reset_query(); ?>
         </ul>
+
+        <!-- / featured post -->
+
         <div style="clear:both;"></div>
     </div>
 </div>
