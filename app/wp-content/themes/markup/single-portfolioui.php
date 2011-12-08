@@ -16,7 +16,11 @@
 
 <div class="topblock">
     <div class="image">
-        <?php the_post_thumbnail(); ?>
+        <?php $value =  get_post_meta($post->ID, "Youtube", true);?>
+        <?php if (!empty($value)){?>
+           <iframe width="560" height="315" src="$value" frameborder="0" allowfullscreen></iframe> <?php }
+        else {
+            the_post_thumbnail(); }?>
         <div class="clear"></div>
     </div>
 </div>
@@ -35,6 +39,12 @@
         <p class="yellow">
             Description </p>
         <p><?php echo get_post_meta($post->ID, "Description", true);?></p>
+    </div>
+
+    <div class="contentpaneopen-portfolio-inherit-page">
+        <p class="yellow">
+            Youtube </p>
+        <p><?php echo get_post_meta($post->ID, "Youtube", true);?></p>
     </div>
         
 </div>

@@ -5,7 +5,6 @@
 }*/
 add_theme_support( 'menus' );
 
-
 register_nav_menus(array(
     'top' => 'Верхнее меню',            //Название месторасположения меню в шаблоне
     'bottom' => 'Нижнее меню'   //Название другого месторасположения меню в шаблоне
@@ -52,10 +51,7 @@ function extra_contact_info($contactmethods) {
     unset($contactmethods['aim']);
     unset($contactmethods['yim']);
     unset($contactmethods['jabber']);
-   
-    $contactmethods['icq'] = 'ICQ';
-    $contactmethods['skype'] = 'Skype';
-   
+
     return $contactmethods;
 }
 add_filter('user_contactmethods', 'extra_contact_info');
@@ -78,3 +74,20 @@ function catch_that_image() {
 require_once (TEMPLATEPATH . '/functions/admin-menu.php');
 
 
+//Youtube
+function cwc_youtube($atts) {
+    extract(shortcode_atts(array(
+        "value" => '',
+        "width" => '475',
+        "height" => '350',
+        "name"=> 'movie',
+        "allowFullScreen" => 'true',
+        "allowScriptAccess"=>'always',
+    ), $atts));
+    return '<iframe width="$width"
+                    height="$height"
+                    src=".$value."
+                    frameborder="0"
+                    allowfullscreen></iframe>';
+}
+add_shortcode("youtube", "cwc_youtube");
