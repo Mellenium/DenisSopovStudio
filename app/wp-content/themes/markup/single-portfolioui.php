@@ -47,12 +47,7 @@
 
     <div id="content-internal">
     <div id="content-internal-header">
-        <div id="content-internal-header-title">
-            <?php if (empty($_GET["portfolio-category"])) {
-            echo "Portfolio";
-        } else {
-            echo $category;
-        } ?></div>
+        <div id="content-internal-header-title">best works</div>
         <div style="clear:both"></div>
     </div>
     <div id="content-internal-center">
@@ -61,8 +56,8 @@
             <?php query_posts('post_type=portfolio&portfolio-category=' . $category . ''); ?>
 
             <?php while (have_posts()) : the_post(); ?>
-
-            <li><a href="<?php the_permalink() ?>" class="mainlevel">
+<!--            <li><a href="--><?php //the_permalink();?><!--portfolio/?portfolio-category=--><?php //echo $term->slug; ?><!--&portfolio-category-name=--><?php //echo $term->name; ?><!--">-->
+            <li><a href="<?php the_permalink() ?>?portfolio-category=<?php ?>" class="mainlevel">
                 <?php the_post_thumbnail(array(295, 172)); ?>
                 <span><?php the_title(); ?></span></a></li>
 
