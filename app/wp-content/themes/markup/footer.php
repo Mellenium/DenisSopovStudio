@@ -1,5 +1,7 @@
 <div id="footer">
-    <div id="copyright">2011 All rights reserved.</div>
+    <div id="copyright">
+		<?php echo get_option('omr_tracking_code');?>
+	</div>
     <div id="footer-menu">
 
         <?php wp_nav_menu( $args = array(
