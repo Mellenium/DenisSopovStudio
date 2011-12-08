@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Дек 08 2011 г., 22:33
+-- Время создания: Дек 08 2011 г., 23:09
 -- Версия сервера: 5.5.8
 -- Версия PHP: 5.3.5
 
@@ -238,7 +238,7 @@ INSERT INTO `wp_options` (`option_id`, `blog_id`, `option_name`, `option_value`,
 (101, 0, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
 (102, 0, 'sidebars_widgets', 'a:2:{s:19:"wp_inactive_widgets";a:13:{i:0;s:7:"pages-2";i:1;s:10:"calendar-2";i:2;s:7:"links-2";i:3;s:6:"text-2";i:4;s:5:"rss-2";i:5;s:11:"tag_cloud-2";i:6;s:10:"nav_menu-2";i:7;s:8:"search-2";i:8;s:14:"recent-posts-2";i:9;s:17:"recent-comments-2";i:10;s:10:"archives-2";i:11;s:12:"categories-2";i:12;s:6:"meta-2";}s:13:"array_version";i:3;}', 'yes'),
 (103, 0, 'cron', 'a:3:{i:1323273617;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1323273625;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
-(104, 0, '_transient_doing_cron', '1323379955', 'yes'),
+(104, 0, '_transient_doing_cron', '1323382173', 'yes'),
 (105, 0, '_transient_random_seed', '87d06a72a611bf09474b7eda8330b201', 'yes'),
 (106, 0, 'auth_salt', '&x-L(K|.Tq*x[Bn,c0nIPx1pqto5N8gHT`:v_4<?c|3=//9tei{YcZRk5!|_VG?j', 'yes'),
 (107, 0, 'logged_in_salt', 'P[:Cs1C_~3PsU5<^U_Y<UJEF?-$}@_z<H):-@<^qF>~0D,i:b!L#]-PfV-6G#(Be', 'yes'),
@@ -496,7 +496,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (198, 71, 'Clients', 'something else'),
 (199, 71, 'Description', 'and something else №2'),
 (204, 119, '_edit_last', '1'),
-(205, 119, '_edit_lock', '1323377314:1'),
+(205, 119, '_edit_lock', '1323381931:1'),
 (206, 119, 'Technologies', 'My technologies'),
 (207, 119, 'Clients', 'My clients'),
 (208, 120, '_wp_attached_file', '2011/12/ex_900_8.jpg'),
@@ -589,7 +589,7 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (335, 160, '_edit_lock', '1323264993:1'),
 (336, 164, '_edit_last', '1'),
 (337, 164, '_edit_lock', '1323265132:1'),
-(338, 119, 'Youtube', 'http://www.youtube.com/watch?v=1aBSPn2P9bg');
+(338, 119, 'Youtube', 'http://www.youtube.com/embed/GRNZ0wwNOTc');
 
 -- --------------------------------------------------------
 
@@ -699,7 +699,7 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (115, 1, '2011-12-06 14:10:50', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:10:50', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=115', 0, 'portfolio', '', 0),
 (116, 1, '2011-12-06 14:11:18', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:11:18', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=116', 0, 'portfolio', '', 0),
 (117, 1, '2011-12-06 14:12:25', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:12:25', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=117', 0, 'portfolio', '', 0),
-(119, 1, '2011-12-06 14:19:05', '2011-12-06 14:19:05', '', 'House night', '', 'publish', 'closed', 'closed', '', 'house-night', '', '', '2011-12-08 20:48:33', '2011-12-08 20:48:33', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=119', 0, 'portfolio', '', 0),
+(119, 1, '2011-12-06 14:19:05', '2011-12-06 14:19:05', '', 'House night', '', 'publish', 'closed', 'closed', '', 'house-night', '', '', '2011-12-08 22:05:30', '2011-12-08 22:05:30', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=119', 0, 'portfolio', '', 0),
 (120, 1, '2011-12-06 14:18:00', '2011-12-06 14:18:00', '', 'ex_900_8', '', 'inherit', 'open', 'open', '', 'ex_900_8-3', '', '', '2011-12-06 14:18:00', '2011-12-06 14:18:00', '', 119, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg', 0, 'attachment', 'image/jpeg', 0),
 (121, 1, '2011-12-06 14:21:32', '2011-12-06 14:21:32', '', 'House day', '', 'publish', 'closed', 'closed', '', 'house-dey', '', '', '2011-12-06 16:03:55', '2011-12-06 16:03:55', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=121', 0, 'portfolio', '', 0),
 (122, 1, '2011-12-06 14:21:19', '2011-12-06 14:21:19', '', 'ex_900_7', '', 'inherit', 'open', 'open', '', 'ex_900_7-3', '', '', '2011-12-06 14:21:19', '2011-12-06 14:21:19', '', 121, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_7.jpg', 0, 'attachment', 'image/jpeg', 0),

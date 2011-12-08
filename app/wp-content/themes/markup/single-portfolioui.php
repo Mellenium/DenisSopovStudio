@@ -18,7 +18,7 @@
     <div class="image">
         <?php $value =  get_post_meta($post->ID, "Youtube", true);?>
         <?php if (!empty($value)){?>
-           <iframe width="560" height="315" src="$value" frameborder="0" allowfullscreen></iframe> <?php }
+           <iframe width="560" height="315" src="<?php echo $value; ?>" frameborder="0" allowfullscreen></iframe> <?php }
         else {
             the_post_thumbnail(); }?>
         <div class="clear"></div>
