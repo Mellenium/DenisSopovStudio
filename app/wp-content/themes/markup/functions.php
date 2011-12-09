@@ -78,7 +78,7 @@ function myplugin_inner_custom_box( $post ) {
   echo '<label for="myplugin_new_field">';
        _e("Description for this field", 'myplugin_textdomain' );
   echo '</label> ';
-  echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" value="-----" size="25" />';
+  echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" value="" size="25" />';
 }
 
 /* When the post is saved, saves our custom data */
