@@ -5,18 +5,15 @@
         <div class="ribbon"></div>
         <div id="slider" class="nivoSlider">
 
-            <a href="<?php the_permalink();?>">
-                    <?php query_posts('post_type=portfolio&teg=featured'); ?>
+
+                    <?php query_posts('post_type=portfolio&orderby=rand&showposts=10'); ?>
                     <?php while (have_posts()) : the_post(); ?>
-                        <?php the_post_thumbnail(); ?>
+                        <a href="<?php the_permalink();?>">
+                        <?php the_post_thumbnail(array(750, 422)); ?></a>
                         <?php endwhile; ?>
                     <?php wp_reset_query(); ?>
 
-
-            <img src="<?php echo bloginfo('template_directory'); ?>/images/banners/art_750.jpg" alt=""/>
-            <img src="<?php echo bloginfo('template_directory'); ?>/images/banners/art_750_3.jpg" alt=""/>
-            <img src="<?php echo bloginfo('template_directory'); ?>/images/banners/art_4_750.jpg" alt=""
-                 title="This is an example of a caption"/>
+            
         </div>
         <div id="htmlcaption" class="nivo-html-caption">
         </div>
