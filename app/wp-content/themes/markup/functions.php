@@ -40,7 +40,24 @@ function catch_that_image() {
 // Load main options panel file
 require_once (TEMPLATEPATH . '/functions/admin-menu.php');
 
+// Убираем пункты меню
+function remove_menus()
+{
+global $menu;
+// Массив разделов меню, которые мы планируем удалить
+$restricted = array( __('Links'),__('Comments'),__('Media'),__('Dashboard'),__('Posts'));
+end ($menu);
 
+while (prev($menu))
+{
+$value = explode(' ',$menu[key($menu)][0]);
+if(in_array($value[0] != NULL?$value[0]:"" , $restricted))
+{
+unset($menu[key($menu)]);
+}
+}
+}
+add_action('admin_menu', 'remove_menus');
 
 
 
