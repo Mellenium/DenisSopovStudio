@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying content in the single-portfolioui.php template
+ * The template for displaying content in the single-portfolio.php template
  *
  * @package WordPress
  * @subpackage Twenty_Eleven

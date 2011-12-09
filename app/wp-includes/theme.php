@@ -1005,7 +1005,7 @@ function get_single_template() {
 	$templates = array();
 
 	$templates[] = "single-{$object->post_type}.php";
-	$templates[] = "single-portfolioui.php";
+	$templates[] = "single-portfolio.php";
 
 	return get_query_template( 'single', $templates );
 }

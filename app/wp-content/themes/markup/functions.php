@@ -13,39 +13,6 @@ register_nav_menus(array(
 add_shortcode('related_posts', 'related_posts_shortcode');
 add_theme_support('post-thumbnails');
 
-//$option_name = 'myhack_extraction_length' ;
-//$newvalue = '255' ;
-//
-//if ( get_option( $option_name ) != $newvalue ) {
-//    update_option( $option_name, $newvalue );
-//} else {
-//    $deprecated = ' ';
-//    $autoload = 'no';
-//    add_option( $option_name, $newvalue, $deprecated, $autoload );
-//}
-//
-
-//add_action("admin_init", 'add_ICQ_Skype_admin_email');
-//function add_ICQ_Skype_admin_email()
-//{
-//
-//    $option_name = 'admin_email';
-//$newvalue = '250982927';
-//
-//
-//if ( get_option( $option_name ) != $newvalue ) {
-//    update_option( $option_name, $newvalue ,'','yes');
-////    update_option("ICQ", '250982927', '', 'yes');
-////    update_option("Skype", 'Deniss', '', 'yes');
-////    update_option("admin_email", 'info@denissopovstudio.com', '', 'yes');
-//} else {
-//    $deprecated = ' ';
-//    $autoload = 'no';
-//    add_option( $option_name, $newvalue, $deprecated, $autoload );
-//}
-
-
-
 function extra_contact_info($contactmethods) {
 
     unset($contactmethods['aim']);
@@ -72,22 +39,3 @@ function catch_that_image() {
 
 // Load main options panel file
 require_once (TEMPLATEPATH . '/functions/admin-menu.php');
-
-
-//Youtube
-function cwc_youtube($atts) {
-    extract(shortcode_atts(array(
-        "value" => '',
-        "width" => '475',
-        "height" => '350',
-        "name"=> 'movie',
-        "allowFullScreen" => 'true',
-        "allowScriptAccess"=>'always',
-    ), $atts));
-    return '<iframe width="$width"
-                    height="$height"
-                    src=".$value."
-                    frameborder="0"
-                    allowfullscreen></iframe>';
-}
-add_shortcode("youtube", "cwc_youtube");
