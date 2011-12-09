@@ -1,31 +1,14 @@
 <?php
 // Создать пользовательское меню
-add_action('admin_menu', 'omr_create_menu');
-
-function omr_create_menu()
-{
+add_action('admin_menu', 'register_my_custom_submenu_page');
 
 
-    //создать новое меню верхнего уровня
-    add_menu_page('Build Internet Settings', 'WP-Options', 'administrator',
-                  __FILE__, 'omr_settings_page');
+function register_my_custom_submenu_page() {
+ add_submenu_page( 'themes.php', 'Настройка темы', 'Настройка темы', 'manage_options', 'my-custom-submenu-page', 'my_custom_submenu_page_callback' );
+}
 
-    //вызвать функцию register settings
-    add_action('admin_init', 'register_mysettings');
-
-    function register_mysettings()
-    {
-        //регистрируем наши настройки
-        register_setting('omr-settings-group', 'Copyright');
-         register_setting('omr-settings-group', 'ICQ');
-         register_setting('omr-settings-group', 'Skype');
-         register_setting('omr-settings-group', 'Email');
-        register_setting('omr-settings-group', 'Slide-show');
-    }
-
-    function omr_settings_page()
-    {
-        ?>
+function my_custom_submenu_page_callback() {
+	?>
     <div class="wrap">
         <h2>WP-Options</h2>
 
@@ -74,5 +57,5 @@ function omr_create_menu()
         </form>
     </div>
     <?php
-    }
+
 }
