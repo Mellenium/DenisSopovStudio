@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2011 at 06:08 PM
+-- Generation Time: Dec 09, 2011 at 06:26 PM
 -- Server version: 5.1.40
 -- PHP Version: 5.3.3
 
@@ -18,6 +18,101 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 -- Database: `denis`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_commentmeta`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_commentmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext,
+  PRIMARY KEY (`meta_id`),
+  KEY `comment_id` (`comment_id`),
+  KEY `meta_key` (`meta_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `wp_commentmeta`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_comments`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_comments` (
+  `comment_ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `comment_post_ID` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `comment_author` tinytext NOT NULL,
+  `comment_author_email` varchar(100) NOT NULL DEFAULT '',
+  `comment_author_url` varchar(200) NOT NULL DEFAULT '',
+  `comment_author_IP` varchar(100) NOT NULL DEFAULT '',
+  `comment_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `comment_content` text NOT NULL,
+  `comment_karma` int(11) NOT NULL DEFAULT '0',
+  `comment_approved` varchar(20) NOT NULL DEFAULT '1',
+  `comment_agent` varchar(255) NOT NULL DEFAULT '',
+  `comment_type` varchar(20) NOT NULL DEFAULT '',
+  `comment_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`comment_ID`),
+  KEY `comment_approved` (`comment_approved`),
+  KEY `comment_post_ID` (`comment_post_ID`),
+  KEY `comment_approved_date_gmt` (`comment_approved`,`comment_date_gmt`),
+  KEY `comment_date_gmt` (`comment_date_gmt`),
+  KEY `comment_parent` (`comment_parent`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `wp_comments`
+--
+
+INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
+(1, 1, 'Мистер WordPress', '', 'http://wordpress.org/', '', '2011-11-14 16:00:10', '2011-11-14 16:00:10', 'Привет! Это комментарий.<br />Чтобы удалить его, авторизуйтесь и просмотрите комментарии к записи. Там будут ссылки для их изменения или удаления.', 0, '1', '', '', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_links`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_links` (
+  `link_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `link_url` varchar(255) NOT NULL DEFAULT '',
+  `link_name` varchar(255) NOT NULL DEFAULT '',
+  `link_image` varchar(255) NOT NULL DEFAULT '',
+  `link_target` varchar(25) NOT NULL DEFAULT '',
+  `link_description` varchar(255) NOT NULL DEFAULT '',
+  `link_visible` varchar(20) NOT NULL DEFAULT 'Y',
+  `link_owner` bigint(20) unsigned NOT NULL DEFAULT '1',
+  `link_rating` int(11) NOT NULL DEFAULT '0',
+  `link_updated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `link_rel` varchar(255) NOT NULL DEFAULT '',
+  `link_notes` mediumtext NOT NULL,
+  `link_rss` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`link_id`),
+  KEY `link_visible` (`link_visible`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `wp_links`
+--
+
+INSERT INTO `wp_links` (`link_id`, `link_url`, `link_name`, `link_image`, `link_target`, `link_description`, `link_visible`, `link_owner`, `link_rating`, `link_updated`, `link_rel`, `link_notes`, `link_rss`) VALUES
+(1, 'http://codex.wordpress.org/', 'Documentation', '', '', '', 'Y', 1, 0, '0000-00-00 00:00:00', '', '', ''),
+(2, 'http://wordpress.org/news/', 'WordPress Blog', '', '', '', 'Y', 1, 0, '0000-00-00 00:00:00', '', '', 'http://wordpress.org/news/feed/'),
+(3, 'http://wordpress.org/extend/ideas/', 'Suggest Ideas', '', '', '', 'Y', 1, 0, '0000-00-00 00:00:00', '', '', ''),
+(4, 'http://wordpress.org/support/', 'Support Forum', '', '', '', 'Y', 1, 0, '0000-00-00 00:00:00', '', '', ''),
+(5, 'http://wordpress.org/extend/plugins/', 'Plugins', '', '', '', 'Y', 1, 0, '0000-00-00 00:00:00', '', '', ''),
+(6, 'http://wordpress.org/extend/themes/', 'Themes', '', '', '', 'Y', 1, 0, '0000-00-00 00:00:00', '', '', ''),
+(7, 'http://planet.wordpress.org/', 'WordPress Planet', '', '', '', 'Y', 1, 0, '0000-00-00 00:00:00', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -237,3 +332,611 @@ INSERT INTO `wp_options` (`option_id`, `blog_id`, `option_name`, `option_value`,
 (746, 0, 'Email', '', 'yes'),
 (747, 0, '_transient_timeout_settings_errors', '1323443046', 'no'),
 (748, 0, '_transient_settings_errors', 'a:1:{i:0;a:4:{s:7:"setting";s:7:"general";s:4:"code";s:16:"settings_updated";s:7:"message";s:38:"Настройки сохранены.";s:4:"type";s:7:"updated";}}', 'no');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_postmeta`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_postmeta` (
+  `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext,
+  PRIMARY KEY (`meta_id`),
+  KEY `post_id` (`post_id`),
+  KEY `meta_key` (`meta_key`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=339 ;
+
+--
+-- Dumping data for table `wp_postmeta`
+--
+
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(1, 2, '_wp_page_template', 'default'),
+(2, 1, '_edit_lock', '1321537983:1'),
+(3, 1, 'Camera_Specs', 'Camera_Specs'),
+(4, 1, '_edit_last', '1'),
+(5, 1, '_pingme', '1'),
+(6, 1, '_encloseme', '1'),
+(7, 1, '_pingme', '1'),
+(8, 1, '_encloseme', '1'),
+(9, 7, '_edit_last', '1'),
+(10, 7, '_edit_lock', '1323118056:1'),
+(11, 2, '_wp_trash_meta_status', 'publish'),
+(12, 2, '_wp_trash_meta_time', '1321445502'),
+(13, 11, '_edit_last', '1'),
+(14, 11, '_edit_lock', '1321445562:1'),
+(17, 15, '_edit_last', '1'),
+(18, 15, '_edit_lock', '1321538077:1'),
+(19, 18, '_menu_item_type', 'post_type'),
+(20, 18, '_menu_item_menu_item_parent', '0'),
+(21, 18, '_menu_item_object_id', '15'),
+(22, 18, '_menu_item_object', 'page'),
+(23, 18, '_menu_item_target', ''),
+(24, 18, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(25, 18, '_menu_item_xfn', ''),
+(26, 18, '_menu_item_url', ''),
+(37, 20, '_menu_item_type', 'post_type'),
+(38, 20, '_menu_item_menu_item_parent', '0'),
+(39, 20, '_menu_item_object_id', '11'),
+(40, 20, '_menu_item_object', 'page'),
+(41, 20, '_menu_item_target', ''),
+(42, 20, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(43, 20, '_menu_item_xfn', ''),
+(44, 20, '_menu_item_url', ''),
+(46, 21, '_menu_item_type', 'post_type'),
+(47, 21, '_menu_item_menu_item_parent', '0'),
+(48, 21, '_menu_item_object_id', '7'),
+(49, 21, '_menu_item_object', 'page'),
+(50, 21, '_menu_item_target', ''),
+(51, 21, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(52, 21, '_menu_item_xfn', ''),
+(53, 21, '_menu_item_url', ''),
+(55, 22, 'form', '<p>Ваше имя (обязательно)<br />\r\n    [text* your-name] </p>\r\n\r\n<p>Ваш E-Mail (обязательно)<br />\r\n    [email* your-email] </p>\r\n\r\n<p>Тема<br />\r\n    [text your-subject] </p>\r\n\r\n<p>Сообщение<br />\r\n    [textarea your-message] </p>\r\n\r\n<p>[submit "Отправить"]</p>'),
+(56, 22, 'mail', 'a:7:{s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:255:"От: [your-name] <[your-email]>\r\nТема: [your-subject]\r\n\r\nТело сообщения:\r\n[your-message]\r\n\r\n--\r\nЭто сообщение отправлено посредством контактной формы на Myblog http://localhost/wordpress4";s:9:"recipient";s:22:"Spiritvoin88@gmail.com";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
+(57, 22, 'mail_2', 'a:8:{s:6:"active";s:0:"";s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:193:"Тело сообщения:\r\n[your-message]\r\n\r\n--\r\nЭто сообщение отправлено посредством контактной формы на Myblog http://localhost/wordpress4";s:9:"recipient";s:12:"[your-email]";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
+(58, 22, 'messages', 'a:13:{s:12:"mail_sent_ok";s:89:"Ваше сообщение было отправлено успешно. Спасибо.";s:12:"mail_sent_ng";s:162:"Ошибка при отправке сообщения. Попытайтесь позже или обратитесь к администратору сайта.";s:16:"validation_error";s:103:"Ошибка заполнения. Заполните все поля и отправьте снова.";s:12:"accept_terms";s:82:"Пожалуйста, примите условия для продолжения.";s:13:"invalid_email";s:43:"Некорректный e-mail адрес.";s:16:"invalid_required";s:75:"Пожалуйста, заполните обязательные поля.";s:17:"akismet_says_spam";s:162:"Ошибка при отправке сообщения. Попытайтесь позже или обратитесь к администратору сайта.";s:17:"captcha_not_match";s:51:"Код введен Вами неправильно";s:13:"upload_failed";s:48:"Не удалось загрузить файл.";s:24:"upload_file_type_invalid";s:49:"Этот тип файле не разрешен.";s:21:"upload_file_too_large";s:48:"Этот файл слишком большой.";s:23:"upload_failed_php_error";s:79:"Отправка файла не удалась. Возникла ошибка.";s:23:"quiz_answer_not_correct";s:50:"Вы ввели некорретный ответ.";}'),
+(59, 22, 'additional_settings', ''),
+(60, 23, 'form', '<div class="index-feedback-header">Quick contact</div>\r\n<p><br />\r\n   [text text-391 class:inputtext watermark "Name"] </p>\r\n\r\n<p><br />\r\n    [email email-745 class:inputtext akismet:author_email watermark "Email" ] </p>\r\n\r\n<p><br />\r\n[text text-452  class:inputtext watermark "Phone"]</p>\r\n\r\n<p><br />\r\n[text text-97 class:inputtext watermark "Country" ]</p>\r\n\r\n<p>Message<br />\r\n    [textarea your-message class:inputtext] </p>\r\n\r\n<p>[submit id:simpleForm2_963_submit class:submit "Send!"]</p>'),
+(61, 23, 'mail', 'a:7:{s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:253:"От: [text-722] <[email-745]>\r\nТема: [your-subject]\r\n\r\nТело сообщения:\r\n[your-message]\r\n\r\n--\r\nЭто сообщение отправлено посредством контактной формы на Myblog http://localhost/wordpress4";s:9:"recipient";s:22:"Spiritvoin88@gmail.com";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
+(62, 23, 'mail_2', 'a:8:{s:6:"active";s:0:"";s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:193:"Тело сообщения:\r\n[your-message]\r\n\r\n--\r\nЭто сообщение отправлено посредством контактной формы на Myblog http://localhost/wordpress4";s:9:"recipient";s:12:"[your-email]";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
+(63, 23, 'messages', 'a:13:{s:12:"mail_sent_ok";s:89:"Ваше сообщение было отправлено успешно. Спасибо.";s:12:"mail_sent_ng";s:162:"Ошибка при отправке сообщения. Попытайтесь позже или обратитесь к администратору сайта.";s:16:"validation_error";s:103:"Ошибка заполнения. Заполните все поля и отправьте снова.";s:12:"accept_terms";s:82:"Пожалуйста, примите условия для продолжения.";s:13:"invalid_email";s:43:"Некорректный e-mail адрес.";s:16:"invalid_required";s:75:"Пожалуйста, заполните обязательные поля.";s:17:"akismet_says_spam";s:162:"Ошибка при отправке сообщения. Попытайтесь позже или обратитесь к администратору сайта.";s:17:"captcha_not_match";s:51:"Код введен Вами неправильно";s:13:"upload_failed";s:48:"Не удалось загрузить файл.";s:24:"upload_file_type_invalid";s:49:"Этот тип файле не разрешен.";s:21:"upload_file_too_large";s:48:"Этот файл слишком большой.";s:23:"upload_failed_php_error";s:79:"Отправка файла не удалась. Возникла ошибка.";s:23:"quiz_answer_not_correct";s:50:"Вы ввели некорретный ответ.";}'),
+(64, 23, 'additional_settings', ''),
+(65, 7, 'ICQ', '250982927'),
+(66, 7, 'Skype', 'DenisS'),
+(67, 7, 'Email', 'info@denissopovstudio.com'),
+(68, 15, '_wp_page_template', 'default'),
+(69, 33, '_edit_last', '1'),
+(70, 33, '_edit_lock', '1321885127:1'),
+(71, 33, '_wp_trash_meta_status', 'publish'),
+(72, 33, '_wp_trash_meta_time', '1321893412'),
+(75, 41, '_wp_attached_file', '2011/11/s_clients-adidas-1.png'),
+(76, 41, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"200";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''64'' width=''128''";s:4:"file";s:30:"2011/11/s_clients-adidas-1.png";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:30:"s_clients-adidas-1-150x100.png";s:5:"width";s:3:"150";s:6:"height";s:3:"100";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(78, 42, '_wp_attached_file', '2011/11/s_clients-adidas-11.png'),
+(79, 42, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"200";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''64'' width=''128''";s:4:"file";s:31:"2011/11/s_clients-adidas-11.png";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:31:"s_clients-adidas-11-150x100.png";s:5:"width";s:3:"150";s:6:"height";s:3:"100";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(82, 47, '_wp_attached_file', '2011/11/s_clients-ferrari.png'),
+(83, 47, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"200";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''64'' width=''128''";s:4:"file";s:29:"2011/11/s_clients-ferrari.png";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:29:"s_clients-ferrari-150x100.png";s:5:"width";s:3:"150";s:6:"height";s:3:"100";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(89, 51, '_wp_attached_file', '2011/11/s_clients-mercedes.png'),
+(90, 51, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"200";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''64'' width=''128''";s:4:"file";s:30:"2011/11/s_clients-mercedes.png";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:30:"s_clients-mercedes-150x100.png";s:5:"width";s:3:"150";s:6:"height";s:3:"100";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(99, 61, '_wp_attached_file', '2011/11/s_clients-ferrari1.png'),
+(100, 61, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"200";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''64'' width=''128''";s:4:"file";s:30:"2011/11/s_clients-ferrari1.png";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:30:"s_clients-ferrari1-150x100.png";s:5:"width";s:3:"150";s:6:"height";s:3:"100";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(105, 69, '_edit_last', '1'),
+(106, 69, '_edit_lock', '1322139205:1'),
+(107, 70, '_wp_attached_file', '2011/11/m_ex_900_5.jpg'),
+(108, 70, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"504";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:22:"2011/11/m_ex_900_5.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:22:"m_ex_900_5-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:22:"m_ex_900_5-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(109, 69, '_thumbnail_id', '70'),
+(110, 72, '_wp_attached_file', '2011/11/m_ex_900_51.jpg'),
+(111, 72, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"504";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:23:"2011/11/m_ex_900_51.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:23:"m_ex_900_51-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:23:"m_ex_900_51-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(113, 71, '_edit_last', '1'),
+(114, 71, '_edit_lock', '1323176253:1'),
+(115, 75, 'form', '<div class="index-feedback-header">Quick contact</div>\r\n<p><br />\r\n   [text* text-391 class:inputtext watermark "Name"] </p>\r\n\r\n<p><br />\r\n    [email* email-745 class:inputtext akismet:author_email watermark "Email" ] </p>\r\n\r\n<p><br />\r\n[text text-452  class:inputtext watermark "Phone"]</p>\r\n\r\n<p><br />\r\n[text text-97 class:inputtext watermark "Country" ]</p>\r\n\r\n<p>Message<br />\r\n    [textarea your-message class:inputtext] </p>\r\n\r\n<p>[submit id:simpleForm2_963_submit class:submit "Send!"]</p>'),
+(116, 75, 'mail', 'a:7:{s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:179:"From: [text-391] <[email-745]>\r\nPhone: [text-452]\r\nCountry: [text-97]\r\nMessage Body:\r\n[your-message]\r\n\r\n--\r\nThis mail is sent via contact form on Myblog http://localhost/denis/app";s:9:"recipient";s:25:"info@denissopovstudio.com";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
+(117, 75, 'mail_2', 'a:8:{s:6:"active";s:0:"";s:7:"subject";s:14:"[your-subject]";s:6:"sender";s:26:"[your-name] <[your-email]>";s:4:"body";s:108:"Message body:\r\n[your-message]\r\n\r\n--\r\nThis mail is sent via contact form on Myblog http://localhost/denis/app";s:9:"recipient";s:12:"[your-email]";s:18:"additional_headers";s:0:"";s:11:"attachments";s:0:"";s:8:"use_html";s:0:"";}'),
+(118, 75, 'messages', 'a:13:{s:12:"mail_sent_ok";s:43:"Your message was sent successfully. Thanks.";s:12:"mail_sent_ng";s:93:"Failed to send your message. Please try later or contact the administrator by another method.";s:16:"validation_error";s:74:"Validation errors occurred. Please confirm the fields and submit it again.";s:12:"accept_terms";s:35:"Please accept the terms to proceed.";s:13:"invalid_email";s:28:"Email address seems invalid.";s:16:"invalid_required";s:31:"Please fill the required field.";s:17:"akismet_says_spam";s:93:"Failed to send your message. Please try later or contact the administrator by another method.";s:17:"captcha_not_match";s:31:"Your entered code is incorrect.";s:13:"upload_failed";s:22:"Failed to upload file.";s:24:"upload_file_type_invalid";s:30:"This file type is not allowed.";s:21:"upload_file_too_large";s:23:"This file is too large.";s:23:"upload_failed_php_error";s:38:"Failed to upload file. Error occurred.";s:23:"quiz_answer_not_correct";s:27:"Your answer is not correct.";}'),
+(119, 75, 'additional_settings', ''),
+(120, 76, '_menu_item_type', 'post_type'),
+(121, 76, '_menu_item_menu_item_parent', '0'),
+(122, 76, '_menu_item_object_id', '15'),
+(123, 76, '_menu_item_object', 'page'),
+(124, 76, '_menu_item_target', ''),
+(125, 76, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(126, 76, '_menu_item_xfn', ''),
+(127, 76, '_menu_item_url', ''),
+(138, 78, '_menu_item_type', 'post_type'),
+(139, 78, '_menu_item_menu_item_parent', '0'),
+(140, 78, '_menu_item_object_id', '11'),
+(141, 78, '_menu_item_object', 'page'),
+(142, 78, '_menu_item_target', ''),
+(143, 78, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(144, 78, '_menu_item_xfn', ''),
+(145, 78, '_menu_item_url', ''),
+(147, 79, '_menu_item_type', 'post_type'),
+(148, 79, '_menu_item_menu_item_parent', '0'),
+(149, 79, '_menu_item_object_id', '7'),
+(150, 79, '_menu_item_object', 'page'),
+(151, 79, '_menu_item_target', ''),
+(152, 79, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(153, 79, '_menu_item_xfn', ''),
+(154, 79, '_menu_item_url', ''),
+(156, 80, '_edit_last', '1'),
+(157, 80, '_edit_lock', '1323118569:1'),
+(158, 81, '_wp_attached_file', '2011/12/ex_900_8.jpg'),
+(159, 81, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"506";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:20:"2011/12/ex_900_8.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:20:"ex_900_8-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:20:"ex_900_8-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(160, 80, '_thumbnail_id', '81'),
+(161, 83, '_edit_last', '1'),
+(162, 83, '_edit_lock', '1323118638:1'),
+(163, 84, '_wp_attached_file', '2011/12/ex_900_7.jpg'),
+(164, 84, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"506";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:20:"2011/12/ex_900_7.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:20:"ex_900_7-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:20:"ex_900_7-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(165, 83, '_thumbnail_id', '84'),
+(166, 86, '_edit_last', '1'),
+(167, 86, '_edit_lock', '1323118770:1'),
+(168, 87, '_wp_attached_file', '2011/12/ex_900_9.jpg'),
+(169, 87, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"506";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:20:"2011/12/ex_900_9.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:20:"ex_900_9-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:20:"ex_900_9-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(170, 86, '_thumbnail_id', '87'),
+(171, 92, '_wp_attached_file', '2011/12/ex_900_71.jpg'),
+(172, 92, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"506";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:21:"2011/12/ex_900_71.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:21:"ex_900_71-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:21:"ex_900_71-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(174, 91, '_edit_last', '1'),
+(175, 91, '_edit_lock', '1323170621:1'),
+(176, 95, '_wp_attached_file', '2011/12/ex_900_81.jpg'),
+(177, 95, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"506";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:21:"2011/12/ex_900_81.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:21:"ex_900_81-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:21:"ex_900_81-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(179, 94, '_edit_last', '1'),
+(180, 94, '_edit_lock', '1323177872:1'),
+(181, 98, '_wp_attached_file', '2011/12/obj_295_15.jpg'),
+(182, 98, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"295";s:6:"height";s:3:"172";s:14:"hwstring_small";s:23:"height=''74'' width=''128''";s:4:"file";s:22:"2011/12/obj_295_15.jpg";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:22:"obj_295_15-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(184, 100, '_wp_attached_file', '2011/12/int_295_3.jpg'),
+(185, 100, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"295";s:6:"height";s:3:"172";s:14:"hwstring_small";s:23:"height=''74'' width=''128''";s:4:"file";s:21:"2011/12/int_295_3.jpg";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:21:"int_295_3-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(187, 102, '_wp_attached_file', '2011/12/obj_295_15.jpg'),
+(188, 102, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"295";s:6:"height";s:3:"172";s:14:"hwstring_small";s:23:"height=''74'' width=''128''";s:4:"file";s:22:"2011/12/obj_295_15.jpg";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:22:"obj_295_15-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(189, 94, '_thumbnail_id', '102'),
+(190, 104, '_wp_attached_file', '2011/12/anim1_250_4.jpg'),
+(191, 104, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"295";s:6:"height";s:3:"172";s:14:"hwstring_small";s:23:"height=''74'' width=''128''";s:4:"file";s:23:"2011/12/anim1_250_4.jpg";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:23:"anim1_250_4-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(193, 91, '_thumbnail_id', '104'),
+(194, 109, '_wp_attached_file', '2011/11/art_750.jpg'),
+(195, 109, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"750";s:6:"height";s:3:"422";s:14:"hwstring_small";s:23:"height=''72'' width=''128''";s:4:"file";s:19:"2011/11/art_750.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:19:"art_750-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:19:"art_750-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(196, 71, '_thumbnail_id', '109'),
+(197, 71, 'Technologies', 'some'),
+(198, 71, 'Clients', 'something else'),
+(199, 71, 'Description', 'and something else №2'),
+(204, 119, '_edit_last', '1'),
+(205, 119, '_edit_lock', '1323434300:1'),
+(206, 119, 'Technologies', 'My technologies'),
+(207, 119, 'Clients', 'My clients'),
+(208, 120, '_wp_attached_file', '2011/12/ex_900_8.jpg'),
+(209, 120, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"506";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:20:"2011/12/ex_900_8.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:20:"ex_900_8-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:20:"ex_900_8-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(210, 119, '_thumbnail_id', '120'),
+(211, 119, 'Description', 'My description'),
+(212, 121, '_edit_last', '1'),
+(213, 121, '_edit_lock', '1323187436:1'),
+(214, 121, 'Technologies', 'my Technologies'),
+(215, 121, 'Clients', 'my Clients'),
+(216, 121, 'Description', 'my Description'),
+(217, 122, '_wp_attached_file', '2011/12/ex_900_7.jpg'),
+(218, 122, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"900";s:6:"height";s:3:"506";s:14:"hwstring_small";s:23:"height=''71'' width=''128''";s:4:"file";s:20:"2011/12/ex_900_7.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:20:"ex_900_7-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:20:"ex_900_7-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(219, 121, '_thumbnail_id', '122'),
+(220, 123, '_edit_last', '1'),
+(221, 123, '_edit_lock', '1323181463:1'),
+(222, 123, 'Technologies', 'lgkjshfdlk'),
+(223, 123, 'Clients', 'dgdkgklhjkj'),
+(224, 123, 'Description', 'fhfdjfgkhfjk'),
+(225, 124, '_wp_attached_file', '2011/12/anim1_250_41.jpg'),
+(226, 124, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"295";s:6:"height";s:3:"172";s:14:"hwstring_small";s:23:"height=''74'' width=''128''";s:4:"file";s:24:"2011/12/anim1_250_41.jpg";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:24:"anim1_250_41-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(227, 123, '_thumbnail_id', '124'),
+(228, 125, '_edit_last', '1'),
+(229, 125, '_edit_lock', '1323181571:1'),
+(230, 125, 'Technologies', 'jdhjfhjfhjdgh'),
+(231, 125, 'Clients', 'sfhdgjrtyuietyrfhs'),
+(232, 125, 'Description', 'sfhkruethgfbmfghje567ehre'),
+(233, 126, '_wp_attached_file', '2011/12/art_750.jpg'),
+(234, 126, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"750";s:6:"height";s:3:"422";s:14:"hwstring_small";s:23:"height=''72'' width=''128''";s:4:"file";s:19:"2011/12/art_750.jpg";s:5:"sizes";a:2:{s:9:"thumbnail";a:3:{s:4:"file";s:19:"art_750-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}s:6:"medium";a:3:{s:4:"file";s:19:"art_750-300x168.jpg";s:5:"width";s:3:"300";s:6:"height";s:3:"168";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(235, 125, '_thumbnail_id', '126'),
+(236, 127, '_edit_last', '1'),
+(237, 127, '_edit_lock', '1323187472:1'),
+(238, 127, 'Technologies', 'fhryertsjdg'),
+(239, 127, 'Clients', 'dfhuikryhtyjre67u3u'),
+(240, 127, 'Description', 'ffdktrurtjetn'),
+(241, 128, '_wp_attached_file', '2011/12/obj_295_151.jpg'),
+(242, 128, '_wp_attachment_metadata', 'a:6:{s:5:"width";s:3:"295";s:6:"height";s:3:"172";s:14:"hwstring_small";s:23:"height=''74'' width=''128''";s:4:"file";s:23:"2011/12/obj_295_151.jpg";s:5:"sizes";a:1:{s:9:"thumbnail";a:3:{s:4:"file";s:23:"obj_295_151-150x150.jpg";s:5:"width";s:3:"150";s:6:"height";s:3:"150";}}s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(243, 127, '_thumbnail_id', '128'),
+(254, 130, '_edit_last', '1'),
+(255, 130, '_edit_lock', '1323181947:1'),
+(256, 130, 'URL_Clients', 'adidas.com'),
+(257, 131, '_wp_attached_file', '2011/12/s_clients-adidas-1-150x100.png'),
+(258, 131, '_wp_attachment_metadata', 'a:5:{s:5:"width";s:3:"150";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''85'' width=''128''";s:4:"file";s:38:"2011/12/s_clients-adidas-1-150x100.png";s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(259, 130, '_thumbnail_id', '131'),
+(260, 132, '_edit_last', '1'),
+(261, 132, '_edit_lock', '1323182111:1'),
+(262, 132, 'URL_Clients', 'ferrari.com'),
+(263, 133, '_wp_attached_file', '2011/12/s_clients-ferrari1-150x100.png'),
+(264, 133, '_wp_attachment_metadata', 'a:5:{s:5:"width";s:3:"150";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''85'' width=''128''";s:4:"file";s:38:"2011/12/s_clients-ferrari1-150x100.png";s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(265, 132, '_thumbnail_id', '133'),
+(266, 134, '_edit_last', '1'),
+(267, 134, '_edit_lock', '1323182743:1'),
+(268, 134, 'URL_Clients', 'mercedes.com'),
+(269, 135, '_wp_attached_file', '2011/12/s_clients-mercedes-150x100.png'),
+(270, 135, '_wp_attachment_metadata', 'a:5:{s:5:"width";s:3:"150";s:6:"height";s:3:"100";s:14:"hwstring_small";s:23:"height=''85'' width=''128''";s:4:"file";s:38:"2011/12/s_clients-mercedes-150x100.png";s:10:"image_meta";a:10:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";}}'),
+(271, 134, '_thumbnail_id', '135'),
+(298, 145, '_edit_last', '1'),
+(299, 145, '_edit_lock', '1323183931:1'),
+(300, 147, '_menu_item_type', 'post_type'),
+(301, 147, '_menu_item_menu_item_parent', '0'),
+(302, 147, '_menu_item_object_id', '145'),
+(303, 147, '_menu_item_object', 'page'),
+(304, 147, '_menu_item_target', ''),
+(305, 147, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(306, 147, '_menu_item_xfn', ''),
+(307, 147, '_menu_item_url', ''),
+(311, 151, '_menu_item_type', 'post_type'),
+(312, 151, '_menu_item_menu_item_parent', '0'),
+(313, 151, '_menu_item_object_id', '145'),
+(314, 151, '_menu_item_object', 'page'),
+(315, 151, '_menu_item_target', ''),
+(316, 151, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(317, 151, '_menu_item_xfn', ''),
+(318, 151, '_menu_item_url', ''),
+(320, 153, '_edit_last', '1'),
+(321, 153, '_edit_lock', '1323184252:1'),
+(322, 153, 'URL_Clients', 'ferrari.com'),
+(323, 153, '_thumbnail_id', '133'),
+(324, 154, '_edit_last', '1'),
+(325, 154, '_edit_lock', '1323184236:1'),
+(326, 154, 'URL_Clients', 'mercedes.com'),
+(327, 154, '_thumbnail_id', '135'),
+(328, 155, '_edit_last', '1'),
+(329, 155, '_edit_lock', '1323184306:1'),
+(330, 155, '_thumbnail_id', '131'),
+(331, 155, 'URL_Clients', 'adidas.com'),
+(332, 158, '_edit_last', '1'),
+(333, 158, '_edit_lock', '1323264888:1'),
+(334, 160, '_edit_last', '1'),
+(335, 160, '_edit_lock', '1323264993:1'),
+(336, 164, '_edit_last', '1'),
+(337, 164, '_edit_lock', '1323265132:1'),
+(338, 119, 'Youtube', 'http://www.youtube.com/watch?v=GRNZ0wwNOTc&feature=youtu.be');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_posts`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_posts` (
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `post_author` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `post_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_date_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content` longtext NOT NULL,
+  `post_title` text NOT NULL,
+  `post_excerpt` text NOT NULL,
+  `post_status` varchar(20) NOT NULL DEFAULT 'publish',
+  `comment_status` varchar(20) NOT NULL DEFAULT 'open',
+  `ping_status` varchar(20) NOT NULL DEFAULT 'open',
+  `post_password` varchar(20) NOT NULL DEFAULT '',
+  `post_name` varchar(200) NOT NULL DEFAULT '',
+  `to_ping` text NOT NULL,
+  `pinged` text NOT NULL,
+  `post_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_modified_gmt` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `post_content_filtered` text NOT NULL,
+  `post_parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `guid` varchar(255) NOT NULL DEFAULT '',
+  `menu_order` int(11) NOT NULL DEFAULT '0',
+  `post_type` varchar(20) NOT NULL DEFAULT 'post',
+  `post_mime_type` varchar(100) NOT NULL DEFAULT '',
+  `comment_count` bigint(20) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`ID`),
+  KEY `post_name` (`post_name`),
+  KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
+  KEY `post_parent` (`post_parent`),
+  KEY `post_author` (`post_author`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=166 ;
+
+--
+-- Dumping data for table `wp_posts`
+--
+
+INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
+(7, 1, '2011-11-16 12:01:56', '2011-11-16 12:01:56', '', 'Home', '', 'publish', 'open', 'open', '', 'home', '', '', '2011-11-16 18:44:07', '2011-11-16 18:44:07', '', 0, 'http://localhost/wordpress4/?page_id=7', 0, 'page', '', 0),
+(11, 1, '2011-11-16 12:12:41', '2011-11-16 12:12:41', '', 'Portfolio', '', 'publish', 'open', 'open', '', 'portfolio', '', '', '2011-11-16 12:12:41', '2011-11-16 12:12:41', '', 0, 'http://localhost/wordpress4/?page_id=11', 0, 'page', '', 0),
+(15, 1, '2011-11-16 12:14:01', '2011-11-16 12:14:01', '', 'Contact', '', 'publish', 'open', 'open', '', 'contact', '', '', '2011-11-17 13:54:35', '2011-11-17 13:54:35', '', 0, 'http://localhost/wordpress4/?page_id=15', 0, 'page', '', 0),
+(18, 1, '2011-11-16 12:17:01', '2011-11-16 12:17:01', ' ', '', '', 'publish', 'open', 'open', '', '18', '', '', '2011-12-06 15:05:51', '2011-12-06 15:05:51', '', 0, 'http://localhost/wordpress4/?p=18', 4, 'nav_menu_item', '', 0),
+(20, 1, '2011-11-16 12:17:01', '2011-11-16 12:17:01', ' ', '', '', 'publish', 'open', 'open', '', '20', '', '', '2011-12-06 15:05:51', '2011-12-06 15:05:51', '', 0, 'http://localhost/wordpress4/?p=20', 2, 'nav_menu_item', '', 0),
+(21, 1, '2011-11-16 12:17:00', '2011-11-16 12:17:00', ' ', '', '', 'publish', 'open', 'open', '', '21', '', '', '2011-12-06 15:05:51', '2011-12-06 15:05:51', '', 0, 'http://localhost/wordpress4/?p=21', 1, 'nav_menu_item', '', 0),
+(22, 1, '2011-11-18 16:41:08', '2011-11-18 16:41:08', '', 'Форма для контакта 1', '', 'publish', 'closed', 'open', '', '%d1%84%d0%be%d1%80%d0%bc%d0%b0-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%be%d0%bd%d1%82%d0%b0%d0%ba%d1%82%d0%b0-1', '', '', '2011-11-18 16:41:08', '2011-11-18 16:41:08', '', 0, 'http://localhost/wordpress4/wpcf7_contact_form/%d1%84%d0%be%d1%80%d0%bc%d0%b0-%d0%b4%d0%bb%d1%8f-%d0%ba%d0%be%d0%bd%d1%82%d0%b0%d0%ba%d1%82%d0%b0-1', 0, 'wpcf7_contact_form', '', 0),
+(23, 1, '2011-11-18 16:55:21', '2011-11-18 16:55:21', '', 'Quick contact', '', 'publish', 'closed', 'open', '', 'quick-contact', '', '', '2011-11-18 16:55:21', '2011-11-18 16:55:21', '', 0, 'http://localhost/wordpress4/wpcf7_contact_form/quick-contact', 0, 'wpcf7_contact_form', '', 0),
+(34, 1, '2011-11-21 13:28:40', '2011-11-21 13:28:40', '', 'Add New Item ui', '', 'inherit', 'open', 'open', '', '33-revision', '', '', '2011-11-21 13:28:40', '2011-11-21 13:28:40', '', 33, 'http://localhost/wordpress4/2011/11/33-revision.html', 0, 'revision', '', 0),
+(35, 1, '2011-11-21 14:07:27', '2011-11-21 14:07:27', '<h2>Add New Item ui text</h2>', 'Add New Item ui', '', 'inherit', 'open', 'open', '', '33-autosave', '', '', '2011-11-21 14:07:27', '2011-11-21 14:07:27', '', 33, 'http://localhost/wordpress4/2011/11/33-autosave.html', 0, 'revision', '', 0),
+(36, 1, '2011-11-21 13:28:54', '2011-11-21 13:28:54', '<h2>Add New Item ui text</h2>', 'Add New Item ui', '', 'inherit', 'open', 'open', '', '33-revision-2', '', '', '2011-11-21 13:28:54', '2011-11-21 13:28:54', '', 33, 'http://localhost/wordpress4/2011/11/33-revision-2.html', 0, 'revision', '', 0),
+(37, 1, '2011-11-21 14:16:42', '2011-11-21 14:16:42', '<h2>Add New Item ui text</h2>', 'Add New Item ui', '', 'inherit', 'open', 'open', '', '33-revision-3', '', '', '2011-11-21 14:16:42', '2011-11-21 14:16:42', '', 33, 'http://localhost/wordpress4/2011/11/33-revision-3.html', 0, 'revision', '', 0),
+(38, 1, '2011-11-21 14:17:41', '2011-11-21 14:17:41', '<h2 style="text-align: left;">post ui text</h2>', 'Add New Item ui', '', 'inherit', 'open', 'open', '', '33-revision-4', '', '', '2011-11-21 14:17:41', '2011-11-21 14:17:41', '', 33, 'http://localhost/wordpress4/2011/11/33-revision-4.html', 0, 'revision', '', 0),
+(39, 1, '2011-11-21 14:18:46', '2011-11-21 14:18:46', 'post ui text', 'Add New Item ui', '', 'inherit', 'open', 'open', '', '33-revision-5', '', '', '2011-11-21 14:18:46', '2011-11-21 14:18:46', '', 33, 'http://localhost/wordpress4/2011/11/33-revision-5.html', 0, 'revision', '', 0),
+(41, 1, '2011-11-22 12:48:54', '2011-11-22 12:48:54', '', 's_clients-adidas-1', '', 'inherit', 'open', 'open', '', 's_clients-adidas-1', '', '', '2011-11-22 12:48:54', '2011-11-22 12:48:54', '', 0, 'http://localhost/wordpress4/wp-content/uploads/2011/11/s_clients-adidas-1.png', 0, 'attachment', 'image/png', 0),
+(42, 1, '2011-11-22 12:57:20', '2011-11-22 12:57:20', '', 's_clients-adidas-1', '', 'inherit', 'open', 'open', '', 's_clients-adidas-1-2', '', '', '2011-11-22 12:57:20', '2011-11-22 12:57:20', '', 0, 'http://localhost/wordpress4/wp-content/uploads/2011/11/s_clients-adidas-11.png', 0, 'attachment', 'image/png', 0),
+(47, 1, '2011-11-22 14:45:52', '2011-11-22 14:45:52', '', 's_clients-ferrari', '', 'inherit', 'open', 'open', '', 's_clients-ferrari', '', '', '2011-11-22 14:45:52', '2011-11-22 14:45:52', '', 0, 'http://localhost/wordpress4/wp-content/uploads/2011/11/s_clients-ferrari.png', 0, 'attachment', 'image/png', 0),
+(51, 1, '2011-11-22 14:49:48', '2011-11-22 14:49:48', '', 's_clients-mercedes', '', 'inherit', 'open', 'open', '', 's_clients-mercedes', '', '', '2011-11-22 14:49:48', '2011-11-22 14:49:48', '', 0, 'http://localhost/wordpress4/wp-content/uploads/2011/11/s_clients-mercedes.png', 0, 'attachment', 'image/png', 0),
+(61, 1, '2011-11-22 18:10:01', '2011-11-22 18:10:01', '', 's_clients-ferrari', '', 'inherit', 'open', 'open', '', 's_clients-ferrari-2', '', '', '2011-11-22 18:10:01', '2011-11-22 18:10:01', '', 0, 'http://localhost/wordpress4/wp-content/uploads/2011/11/s_clients-ferrari1.png', 0, 'attachment', 'image/png', 0),
+(69, 1, '2011-11-24 12:53:25', '0000-00-00 00:00:00', '<a href="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_5.jpg"><img class="alignnone size-full wp-image-70" title="m_ex_900_5" src="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_5.jpg" alt="" width="900" height="504" /></a>', 'Interior', '', 'draft', 'open', 'open', '', '', '', '', '2011-11-24 12:53:25', '2011-11-24 12:53:25', '', 0, 'http://localhost/wordpress4/?post_type=portfolioui&#038;p=69', 0, 'portfolioui', '', 0),
+(70, 1, '2011-11-24 12:52:08', '2011-11-24 12:52:08', '', 'm_ex_900_5', '', 'inherit', 'open', 'open', '', 'm_ex_900_5', '', '', '2011-11-24 12:52:08', '2011-11-24 12:52:08', '', 69, 'http://localhost/wordpress4/wp-content/uploads/2011/11/m_ex_900_5.jpg', 0, 'attachment', 'image/jpeg', 0),
+(71, 1, '2011-11-24 15:09:20', '2011-11-24 15:09:20', '', 'Architectu', '', 'publish', 'open', 'open', '', 'architectural-exteriors', '', '', '2011-12-06 12:32:33', '2011-12-06 12:32:33', '', 0, 'http://localhost/wordpress4/?post_type=portfolioui&#038;p=71', 0, 'portfolioui', '', 0),
+(72, 1, '2011-11-24 12:57:25', '2011-11-24 12:57:25', '', 'm_ex_900_5', '', 'inherit', 'open', 'open', '', 'm_ex_900_5-2', '', '', '2011-11-24 12:57:25', '2011-11-24 12:57:25', '', 71, 'http://localhost/wordpress4/wp-content/uploads/2011/11/m_ex_900_51.jpg', 0, 'attachment', 'image/jpeg', 0),
+(73, 1, '2011-11-24 12:58:05', '2011-11-24 12:58:05', '<a href="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg"><img class="alignnone size-full wp-image-72" title="m_ex_900_5" src="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg" alt="" width="900" height="504" /></a>', 'Architectural exteriors', '', 'inherit', 'open', 'open', '', '71-revision', '', '', '2011-11-24 12:58:05', '2011-11-24 12:58:05', '', 71, 'http://localhost/wordpress4/2011/11/71-revision.html', 0, 'revision', '', 0),
+(74, 1, '2011-12-06 11:35:36', '2011-12-06 11:35:36', '<a href="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg"><img class="alignnone size-full wp-image-72" title="m_ex_900_5" src="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg" alt="" width="900" height="504" /></a>', 'Architectu', '', 'inherit', 'open', 'open', '', '71-autosave', '', '', '2011-12-06 11:35:36', '2011-12-06 11:35:36', '', 71, 'http://localhost/wordpress4/2011/11/71-autosave.html', 0, 'revision', '', 0),
+(75, 1, '2011-12-01 15:20:51', '2011-12-01 15:20:51', '', 'Contact', '', 'publish', 'closed', 'open', '', 'contact', '', '', '2011-12-01 15:20:51', '2011-12-01 15:20:51', '', 0, 'http://localhost/denis/app/wpcf7_contact_form/contact', 0, 'wpcf7_contact_form', '', 0),
+(76, 1, '2011-12-01 22:59:01', '2011-12-01 22:59:01', ' ', '', '', 'publish', 'open', 'open', '', '76', '', '', '2011-12-06 15:06:11', '2011-12-06 15:06:11', '', 0, 'http://localhost/denis/app/?p=76', 4, 'nav_menu_item', '', 0),
+(78, 1, '2011-12-01 22:59:01', '2011-12-01 22:59:01', ' ', '', '', 'publish', 'open', 'open', '', '78', '', '', '2011-12-06 15:06:10', '2011-12-06 15:06:10', '', 0, 'http://localhost/denis/app/?p=78', 2, 'nav_menu_item', '', 0),
+(79, 1, '2011-12-01 22:59:01', '2011-12-01 22:59:01', ' ', '', '', 'publish', 'open', 'open', '', '79', '', '', '2011-12-06 15:06:10', '2011-12-06 15:06:10', '', 0, 'http://localhost/denis/app/?p=79', 1, 'nav_menu_item', '', 0),
+(80, 1, '2011-12-05 20:56:08', '2011-12-05 20:56:08', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg"><img class="alignnone size-full wp-image-81" title="ex_900_8" src="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg" alt="" width="900" height="506" /></a>', 'House night', '', 'publish', 'open', 'open', '', 'house-night', '', '', '2011-12-05 20:56:08', '2011-12-05 20:56:08', '', 0, 'http://localhost/denis/app/?post_type=portfolio_ui&#038;p=80', 0, 'portfolio_ui', '', 0),
+(81, 1, '2011-12-05 20:54:43', '2011-12-05 20:54:43', '', 'ex_900_8', '', 'inherit', 'open', 'open', '', 'ex_900_8', '', '', '2011-12-05 20:54:43', '2011-12-05 20:54:43', '', 80, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg', 0, 'attachment', 'image/jpeg', 0),
+(82, 1, '2011-12-05 20:55:30', '2011-12-05 20:55:30', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg"><img class="alignnone size-full wp-image-81" title="ex_900_8" src="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg" alt="" width="900" height="506" /></a>', 'House night', '', 'inherit', 'open', 'open', '', '80-revision', '', '', '2011-12-05 20:55:30', '2011-12-05 20:55:30', '', 80, 'http://localhost/denis/app/2011/12/80-revision.html', 0, 'revision', '', 0),
+(83, 1, '2011-12-05 20:57:17', '2011-12-05 20:57:17', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_7.jpg"><img class="alignnone size-full wp-image-84" title="ex_900_7" src="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_7.jpg" alt="" width="900" height="506" /></a>', 'House day', '', 'publish', 'open', 'open', '', 'house-day', '', '', '2011-12-05 20:57:17', '2011-12-05 20:57:17', '', 0, 'http://localhost/denis/app/?post_type=portfolio_ui&#038;p=83', 0, 'portfolio_ui', '', 0),
+(84, 1, '2011-12-05 20:56:55', '2011-12-05 20:56:55', '', 'ex_900_7', '', 'inherit', 'open', 'open', '', 'ex_900_7', '', '', '2011-12-05 20:56:55', '2011-12-05 20:56:55', '', 83, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_7.jpg', 0, 'attachment', 'image/jpeg', 0),
+(85, 1, '2011-12-05 20:56:42', '2011-12-05 20:56:42', '', 'House day', '', 'inherit', 'open', 'open', '', '83-revision', '', '', '2011-12-05 20:56:42', '2011-12-05 20:56:42', '', 83, 'http://localhost/denis/app/2011/12/83-revision.html', 0, 'revision', '', 0),
+(86, 1, '2011-12-05 20:59:28', '2011-12-05 20:59:28', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_9.jpg"><img class="alignnone size-full wp-image-87" title="ex_900_9" src="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_9.jpg" alt="" width="900" height="506" /></a>', 'City night', '', 'publish', 'open', 'open', '', 'city-night', '', '', '2011-12-05 20:59:28', '2011-12-05 20:59:28', '', 0, 'http://localhost/denis/app/?post_type=portfolio_ui&#038;p=86', 0, 'portfolio_ui', '', 0),
+(87, 1, '2011-12-05 20:59:15', '2011-12-05 20:59:15', '', 'ex_900_9', '', 'inherit', 'open', 'open', '', 'ex_900_9', '', '', '2011-12-05 20:59:15', '2011-12-05 20:59:15', '', 86, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_9.jpg', 0, 'attachment', 'image/jpeg', 0),
+(88, 1, '2011-12-05 20:59:04', '2011-12-05 20:59:04', '', 'City night', '', 'inherit', 'open', 'open', '', '86-revision', '', '', '2011-12-05 20:59:04', '2011-12-05 20:59:04', '', 86, 'http://localhost/denis/app/2011/12/86-revision.html', 0, 'revision', '', 0),
+(89, 1, '2011-12-05 21:06:10', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-05 21:06:10', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolioui&p=89', 0, 'portfolioui', '', 0),
+(90, 1, '2011-11-24 15:09:20', '2011-11-24 15:09:20', '<a href="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg"><img class="alignnone size-full wp-image-72" title="m_ex_900_5" src="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg" alt="" width="900" height="504" /></a>', 'Architectural exteriors', '', 'inherit', 'open', 'open', '', '71-revision-2', '', '', '2011-11-24 15:09:20', '2011-11-24 15:09:20', '', 71, 'http://localhost/denis/app/2011/11/71-revision-2.html', 0, 'revision', '', 0),
+(91, 1, '2011-12-05 21:09:23', '2011-12-05 21:09:23', '', 'qwe1', '', 'publish', 'open', 'open', '', 'qwe1', '', '', '2011-12-06 11:23:40', '2011-12-06 11:23:40', '', 0, 'http://localhost/denis/app/?post_type=portfolioui&#038;p=91', 0, 'portfolioui', '', 0),
+(92, 1, '2011-12-05 21:09:11', '2011-12-05 21:09:11', '', 'ex_900_7', '', 'inherit', 'open', 'open', '', 'ex_900_7-2', '', '', '2011-12-05 21:09:11', '2011-12-05 21:09:11', '', 91, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_71.jpg', 0, 'attachment', 'image/jpeg', 0),
+(93, 1, '2011-12-05 21:08:49', '2011-12-05 21:08:49', '', 'Черновик', '', 'inherit', 'open', 'open', '', '91-revision', '', '', '2011-12-05 21:08:49', '2011-12-05 21:08:49', '', 91, 'http://localhost/denis/app/2011/12/91-revision.html', 0, 'revision', '', 0),
+(94, 1, '2011-12-05 21:10:06', '2011-12-05 21:10:06', '', 'qwe2', '', 'publish', 'open', 'open', '', 'qwe2', '', '', '2011-12-06 11:20:15', '2011-12-06 11:20:15', '', 0, 'http://localhost/denis/app/?post_type=portfolioui&#038;p=94', 0, 'portfolioui', '', 0),
+(95, 1, '2011-12-05 21:09:55', '2011-12-05 21:09:55', '', 'ex_900_8', '', 'inherit', 'open', 'open', '', 'ex_900_8-2', '', '', '2011-12-05 21:09:55', '2011-12-05 21:09:55', '', 94, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_81.jpg', 0, 'attachment', 'image/jpeg', 0),
+(96, 1, '2011-12-05 21:09:42', '2011-12-05 21:09:42', '', 'Черновик', '', 'inherit', 'open', 'open', '', '94-revision', '', '', '2011-12-05 21:09:42', '2011-12-05 21:09:42', '', 94, 'http://localhost/denis/app/2011/12/94-revision.html', 0, 'revision', '', 0),
+(97, 1, '2011-12-06 11:18:27', '2011-12-06 11:18:27', '', 'qwe2', '', 'inherit', 'open', 'open', '', '94-autosave', '', '', '2011-12-06 11:18:27', '2011-12-06 11:18:27', '', 94, 'http://localhost/denis/app/2011/12/94-autosave.html', 0, 'revision', '', 0),
+(98, 1, '2011-12-06 10:43:20', '2011-12-06 10:43:20', '', 'obj_295_15', '', 'inherit', 'open', 'open', '', 'obj_295_15', '', '', '2011-12-06 10:43:20', '2011-12-06 10:43:20', '', 94, 'http://localhost/denis/app/wp-content/uploads/2011/12/obj_295_15.jpg', 0, 'attachment', 'image/jpeg', 0),
+(99, 1, '2011-12-05 21:10:06', '2011-12-05 21:10:06', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_81.jpg"><img class="alignnone size-full wp-image-95" title="ex_900_8" src="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_81.jpg" alt="" width="900" height="506" /></a>', 'qwe2', '', 'inherit', 'open', 'open', '', '94-revision-2', '', '', '2011-12-05 21:10:06', '2011-12-05 21:10:06', '', 94, 'http://localhost/denis/app/2011/12/94-revision-2.html', 0, 'revision', '', 0),
+(100, 1, '2011-12-06 10:44:45', '2011-12-06 10:44:45', '', 'int_295_3', '', 'inherit', 'open', 'open', '', 'int_295_3', '', '', '2011-12-06 10:44:45', '2011-12-06 10:44:45', '', 91, 'http://localhost/denis/app/wp-content/uploads/2011/12/int_295_3.jpg', 0, 'attachment', 'image/jpeg', 0),
+(101, 1, '2011-12-05 21:09:23', '2011-12-05 21:09:23', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_71.jpg"><img class="alignnone size-full wp-image-92" title="ex_900_7" src="http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_71.jpg" alt="" width="900" height="506" /></a>', 'qwe1', '', 'inherit', 'open', 'open', '', '91-revision-2', '', '', '2011-12-05 21:09:23', '2011-12-05 21:09:23', '', 91, 'http://localhost/denis/app/2011/12/91-revision-2.html', 0, 'revision', '', 0),
+(102, 1, '2011-12-06 11:17:18', '2011-12-06 11:17:18', '', 'obj_295_15', '', 'inherit', 'open', 'open', '', 'obj_295_15-2', '', '', '2011-12-06 11:17:18', '2011-12-06 11:17:18', '', 94, 'http://localhost/denis/app/wp-content/uploads/2011/12/obj_295_15.jpg', 0, 'attachment', 'image/jpeg', 0),
+(103, 1, '2011-12-06 10:43:32', '2011-12-06 10:43:32', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/obj_295_15.jpg"><img class="alignnone size-full wp-image-98" title="obj_295_15" src="http://localhost/denis/app/wp-content/uploads/2011/12/obj_295_15.jpg" alt="" width="295" height="172" /></a>', 'qwe2', '', 'inherit', 'open', 'open', '', '94-revision-3', '', '', '2011-12-06 10:43:32', '2011-12-06 10:43:32', '', 94, 'http://localhost/denis/app/2011/12/94-revision-3.html', 0, 'revision', '', 0),
+(104, 1, '2011-12-06 11:20:52', '2011-12-06 11:20:52', '', 'anim1_250_4', '', 'inherit', 'open', 'open', '', 'anim1_250_4', '', '', '2011-12-06 11:20:52', '2011-12-06 11:20:52', '', 91, 'http://localhost/denis/app/wp-content/uploads/2011/12/anim1_250_4.jpg', 0, 'attachment', 'image/jpeg', 0),
+(105, 1, '2011-12-06 11:21:23', '2011-12-06 11:21:23', '', 'qwe1', '', 'inherit', 'open', 'open', '', '91-autosave', '', '', '2011-12-06 11:21:23', '2011-12-06 11:21:23', '', 91, 'http://localhost/denis/app/2011/12/91-autosave.html', 0, 'revision', '', 0),
+(106, 1, '2011-12-06 10:45:06', '2011-12-06 10:45:06', '<a href="http://localhost/denis/app/wp-content/uploads/2011/12/int_295_3.jpg"><img src="http://localhost/denis/app/wp-content/uploads/2011/12/int_295_3.jpg" alt="" title="int_295_3" width="295" height="172" class="alignnone size-full wp-image-100" /></a>', 'qwe1', '', 'inherit', 'open', 'open', '', '91-revision-3', '', '', '2011-12-06 10:45:06', '2011-12-06 10:45:06', '', 91, 'http://localhost/denis/app/2011/12/91-revision-3.html', 0, 'revision', '', 0),
+(107, 1, '2011-12-06 11:23:28', '2011-12-06 11:23:28', '', 'qwe1', '', 'inherit', 'open', 'open', '', '91-revision-4', '', '', '2011-12-06 11:23:28', '2011-12-06 11:23:28', '', 91, 'http://localhost/denis/app/2011/12/91-revision-4.html', 0, 'revision', '', 0),
+(108, 1, '2011-12-05 21:07:10', '2011-12-05 21:07:10', '<a href="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg"><img class="alignnone size-full wp-image-72" title="m_ex_900_5" src="http://localhost/denis/app/wp-content/uploads/2011/11/m_ex_900_51.jpg" alt="" width="900" height="504" /></a>', 'Architectu', '', 'inherit', 'open', 'open', '', '71-revision-3', '', '', '2011-12-05 21:07:10', '2011-12-05 21:07:10', '', 71, 'http://localhost/denis/app/2011/12/71-revision-3.html', 0, 'revision', '', 0),
+(109, 1, '2011-12-06 12:28:11', '2011-12-06 12:28:11', '', 'art_750', '', 'inherit', 'open', 'open', '', 'art_750', '', '', '2011-12-06 12:28:11', '2011-12-06 12:28:11', '', 71, 'http://localhost/denis/app/wp-content/uploads/2011/11/art_750.jpg', 0, 'attachment', 'image/jpeg', 0),
+(110, 1, '2011-12-06 12:27:12', '2011-12-06 12:27:12', '', 'Architectu', '', 'inherit', 'open', 'open', '', '71-revision-4', '', '', '2011-12-06 12:27:12', '2011-12-06 12:27:12', '', 71, 'http://localhost/denis/app/2011/12/71-revision-4.html', 0, 'revision', '', 0),
+(111, 1, '2011-12-06 13:57:48', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 13:57:48', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=111', 0, 'portfolio', '', 0),
+(113, 1, '2011-12-06 14:00:04', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:00:04', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=113', 0, 'portfolio', '', 0),
+(114, 1, '2011-12-06 14:01:36', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:01:36', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=lients&p=114', 0, 'lients', '', 0),
+(115, 1, '2011-12-06 14:10:50', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:10:50', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=115', 0, 'portfolio', '', 0),
+(116, 1, '2011-12-06 14:11:18', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:11:18', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=116', 0, 'portfolio', '', 0),
+(117, 1, '2011-12-06 14:12:25', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:12:25', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=117', 0, 'portfolio', '', 0),
+(119, 1, '2011-12-06 14:19:05', '2011-12-06 14:19:05', '', 'House night', '', 'publish', 'closed', 'closed', '', 'house-night', '', '', '2011-12-09 12:38:20', '2011-12-09 12:38:20', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=119', 0, 'portfolio', '', 0),
+(120, 1, '2011-12-06 14:18:00', '2011-12-06 14:18:00', '', 'ex_900_8', '', 'inherit', 'open', 'open', '', 'ex_900_8-3', '', '', '2011-12-06 14:18:00', '2011-12-06 14:18:00', '', 119, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_8.jpg', 0, 'attachment', 'image/jpeg', 0),
+(121, 1, '2011-12-06 14:21:32', '2011-12-06 14:21:32', '', 'House day', '', 'publish', 'closed', 'closed', '', 'house-dey', '', '', '2011-12-06 16:03:55', '2011-12-06 16:03:55', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=121', 0, 'portfolio', '', 0),
+(122, 1, '2011-12-06 14:21:19', '2011-12-06 14:21:19', '', 'ex_900_7', '', 'inherit', 'open', 'open', '', 'ex_900_7-3', '', '', '2011-12-06 14:21:19', '2011-12-06 14:21:19', '', 121, 'http://localhost/denis/app/wp-content/uploads/2011/12/ex_900_7.jpg', 0, 'attachment', 'image/jpeg', 0),
+(123, 1, '2011-12-06 14:24:22', '2011-12-06 14:24:22', '', 'Interior', '', 'publish', 'closed', 'closed', '', 'interior', '', '', '2011-12-06 14:24:22', '2011-12-06 14:24:22', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=123', 0, 'portfolio', '', 0),
+(124, 1, '2011-12-06 14:24:00', '2011-12-06 14:24:00', '', 'anim1_250_4', '', 'inherit', 'open', 'open', '', 'anim1_250_4-2', '', '', '2011-12-06 14:24:00', '2011-12-06 14:24:00', '', 123, 'http://localhost/denis/app/wp-content/uploads/2011/12/anim1_250_41.jpg', 0, 'attachment', 'image/jpeg', 0),
+(125, 1, '2011-12-06 14:26:11', '2011-12-06 14:26:11', '', 'Interior-2', '', 'publish', 'closed', 'closed', '', 'interior-2', '', '', '2011-12-06 14:26:11', '2011-12-06 14:26:11', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=125', 0, 'portfolio', '', 0),
+(126, 1, '2011-12-06 14:25:39', '2011-12-06 14:25:39', '', 'art_750', '', 'inherit', 'open', 'open', '', 'art_750-2', '', '', '2011-12-06 14:25:39', '2011-12-06 14:25:39', '', 125, 'http://localhost/denis/app/wp-content/uploads/2011/12/art_750.jpg', 0, 'attachment', 'image/jpeg', 0),
+(127, 1, '2011-12-06 14:27:53', '2011-12-06 14:27:53', '', 'Object', '', 'publish', 'closed', 'closed', '', 'object', '', '', '2011-12-06 14:27:53', '2011-12-06 14:27:53', '', 0, 'http://localhost/denis/app/?post_type=portfolio&#038;p=127', 0, 'portfolio', '', 0),
+(128, 1, '2011-12-06 14:27:43', '2011-12-06 14:27:43', '', 'obj_295_15', '', 'inherit', 'open', 'open', '', 'obj_295_15-3', '', '', '2011-12-06 14:27:43', '2011-12-06 14:27:43', '', 127, 'http://localhost/denis/app/wp-content/uploads/2011/12/obj_295_151.jpg', 0, 'attachment', 'image/jpeg', 0),
+(129, 1, '2011-12-06 14:29:27', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 14:29:27', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=clients&p=129', 0, 'clients', '', 0),
+(130, 1, '2011-12-06 14:32:26', '2011-12-06 14:32:26', '', 'Adidas', '', 'publish', 'closed', 'closed', '', 'adidas', '', '', '2011-12-06 14:32:26', '2011-12-06 14:32:26', '', 0, 'http://localhost/denis/app/?post_type=clients&#038;p=130', 0, 'clients', '', 0),
+(131, 1, '2011-12-06 14:32:06', '2011-12-06 14:32:06', '', 's_clients-adidas-1-150x100', '', 'inherit', 'open', 'open', '', 's_clients-adidas-1-150x100', '', '', '2011-12-06 14:32:06', '2011-12-06 14:32:06', '', 130, 'http://localhost/denis/app/wp-content/uploads/2011/12/s_clients-adidas-1-150x100.png', 0, 'attachment', 'image/png', 0),
+(132, 1, '2011-12-06 14:35:10', '2011-12-06 14:35:10', '', 'Ferrari', '', 'publish', 'closed', 'closed', '', 'ferrari', '', '', '2011-12-06 14:35:10', '2011-12-06 14:35:10', '', 0, 'http://localhost/denis/app/?post_type=clients&#038;p=132', 0, 'clients', '', 0),
+(133, 1, '2011-12-06 14:34:58', '2011-12-06 14:34:58', '', 's_clients-ferrari1-150x100', '', 'inherit', 'open', 'open', '', 's_clients-ferrari1-150x100', '', '', '2011-12-06 14:34:58', '2011-12-06 14:34:58', '', 132, 'http://localhost/denis/app/wp-content/uploads/2011/12/s_clients-ferrari1-150x100.png', 0, 'attachment', 'image/png', 0),
+(134, 1, '2011-12-06 14:36:36', '2011-12-06 14:36:36', '', 'Mercedes', '', 'publish', 'closed', 'closed', '', 'mercedes', '', '', '2011-12-06 14:36:36', '2011-12-06 14:36:36', '', 0, 'http://localhost/denis/app/?post_type=clients&#038;p=134', 0, 'clients', '', 0),
+(135, 1, '2011-12-06 14:36:24', '2011-12-06 14:36:24', '', 's_clients-mercedes-150x100', '', 'inherit', 'open', 'open', '', 's_clients-mercedes-150x100', '', '', '2011-12-06 14:36:24', '2011-12-06 14:36:24', '', 134, 'http://localhost/denis/app/wp-content/uploads/2011/12/s_clients-mercedes-150x100.png', 0, 'attachment', 'image/png', 0),
+(145, 1, '2011-12-06 15:02:27', '2011-12-06 15:02:27', '', 'Clients', '', 'publish', 'open', 'open', '', 'clients', '', '', '2011-12-06 15:05:30', '2011-12-06 15:05:30', '', 0, 'http://localhost/denis/app/?page_id=145', 0, 'page', '', 0),
+(146, 1, '2011-12-06 15:02:15', '2011-12-06 15:02:15', '', 'Черновик', '', 'inherit', 'open', 'open', '', '145-revision', '', '', '2011-12-06 15:02:15', '2011-12-06 15:02:15', '', 145, 'http://localhost/denis/app/2011/12/145-revision.html', 0, 'revision', '', 0),
+(147, 1, '2011-12-06 15:02:41', '2011-12-06 15:02:41', ' ', '', '', 'publish', 'open', 'open', '', '147', '', '', '2011-12-06 15:05:51', '2011-12-06 15:05:51', '', 0, 'http://localhost/denis/app/?p=147', 3, 'nav_menu_item', '', 0),
+(149, 1, '2011-12-06 15:02:27', '2011-12-06 15:02:27', '', 'QWER', '', 'inherit', 'open', 'open', '', '145-revision-2', '', '', '2011-12-06 15:02:27', '2011-12-06 15:02:27', '', 145, 'http://localhost/denis/app/2011/12/145-revision-2.html', 0, 'revision', '', 0),
+(150, 1, '2011-12-06 15:04:37', '2011-12-06 15:04:37', '', 'Clients', '', 'inherit', 'open', 'open', '', '145-revision-3', '', '', '2011-12-06 15:04:37', '2011-12-06 15:04:37', '', 145, 'http://localhost/denis/app/2011/12/145-revision-3.html', 0, 'revision', '', 0),
+(151, 1, '2011-12-06 15:06:10', '2011-12-06 15:06:10', ' ', '', '', 'publish', 'open', 'open', '', '151', '', '', '2011-12-06 15:06:10', '2011-12-06 15:06:10', '', 0, 'http://localhost/denis/app/?p=151', 3, 'nav_menu_item', '', 0),
+(152, 1, '2011-12-06 15:06:59', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 15:06:59', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=client&p=152', 0, 'client', '', 0),
+(153, 1, '2011-12-06 15:08:25', '2011-12-06 15:08:25', '', 'Ferrari', '', 'publish', 'closed', 'closed', '', 'ferrari', '', '', '2011-12-06 15:10:51', '2011-12-06 15:10:51', '', 0, 'http://localhost/denis/app/?post_type=client&#038;p=153', 0, 'client', '', 0),
+(154, 1, '2011-12-06 15:10:18', '2011-12-06 15:10:18', '', 'Mercedes', '', 'publish', 'closed', 'closed', '', 'mercedes', '', '', '2011-12-06 15:10:35', '2011-12-06 15:10:35', '', 0, 'http://localhost/denis/app/?post_type=client&#038;p=154', 0, 'client', '', 0),
+(155, 1, '2011-12-06 15:11:45', '2011-12-06 15:11:45', '', 'Adidas', '', 'publish', 'closed', 'closed', '', 'adidas', '', '', '2011-12-06 15:11:45', '2011-12-06 15:11:45', '', 0, 'http://localhost/denis/app/?post_type=client&#038;p=155', 0, 'client', '', 0),
+(156, 1, '2011-12-06 16:03:42', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-06 16:03:42', '0000-00-00 00:00:00', '', 0, 'http://localhost/denis/app/?post_type=portfolio&p=156', 0, 'portfolio', '', 0),
+(157, 1, '2011-12-07 12:46:26', '0000-00-00 00:00:00', '', 'Черновик', '', 'auto-draft', 'open', 'open', '', '', '', '', '2011-12-07 12:46:26', '0000-00-00 00:00:00', '', 0, 'http://denis.local/app/?p=157', 0, 'post', '', 0),
+(158, 1, '2011-12-07 13:34:47', '2011-12-07 13:34:47', 'Our creative group of cg artists will make you project in shortest time and in high quality! We work in cg market during 7 years and have great experience.\r\n\r\nSkype: vertexds (denisS)\r\n\r\nICQ:  250982927', 'A FEW WORDS ABOUT US', '', 'publish', 'open', 'open', '', 'words', '', '', '2011-12-07 13:34:47', '2011-12-07 13:34:47', '', 0, 'http://denis.local/app/?page_id=158', 0, 'page', '', 0),
+(159, 1, '2011-12-07 13:34:26', '2011-12-07 13:34:26', 'Our creative group of cg artists will make you project in shortest time and in high quality! We work in cg market during 7 years and have great experience.\n\nSkype: vertexds (denisS)\n\nICQ:  250982927', 'A FEW WORDS ABOUT US', '', 'inherit', 'open', 'open', '', '158-revision', '', '', '2011-12-07 13:34:26', '2011-12-07 13:34:26', '', 158, 'http://denis.local/app/2011/12/158-revision.html', 0, 'revision', '', 0),
+(160, 1, '2011-12-07 13:35:51', '2011-12-07 13:35:51', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages', 'WHY CHOOSE US?', '', 'publish', 'open', 'open', '', 'why-choose-us', '', '', '2011-12-07 13:36:32', '2011-12-07 13:36:32', '', 0, 'http://denis.local/app/?page_id=160', 0, 'page', '', 0),
+(161, 1, '2011-12-07 13:35:24', '2011-12-07 13:35:24', '', 'WHY CHOOSE US?', '', 'inherit', 'open', 'open', '', '160-revision', '', '', '2011-12-07 13:35:24', '2011-12-07 13:35:24', '', 160, 'http://denis.local/app/2011/12/160-revision.html', 0, 'revision', '', 0),
+(162, 1, '2011-12-07 13:35:51', '2011-12-07 13:35:51', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages', 'WHY CHOOSE US?', '', 'inherit', 'open', 'open', '', '160-revision-2', '', '', '2011-12-07 13:35:51', '2011-12-07 13:35:51', '', 160, 'http://denis.local/app/2011/12/160-revision-2.html', 0, 'revision', '', 0),
+(163, 1, '2011-12-07 13:36:21', '2011-12-07 13:36:21', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages', 'WHY CHOOSE US?', '', 'inherit', 'open', 'open', '', '160-revision-3', '', '', '2011-12-07 13:36:21', '2011-12-07 13:36:21', '', 160, 'http://denis.local/app/2011/12/160-revision-3.html', 0, 'revision', '', 0),
+(164, 1, '2011-12-07 13:38:52', '2011-12-07 13:38:52', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages', 'OUTSOURCE DEVELOPMENT', '', 'publish', 'open', 'open', '', 'outsource-development', '', '', '2011-12-07 13:38:52', '2011-12-07 13:38:52', '', 0, 'http://denis.local/app/?page_id=164', 0, 'page', '', 0),
+(165, 1, '2011-12-07 13:38:00', '2011-12-07 13:38:00', '', 'OUTSOURCE DEVELOPMENT', '', 'inherit', 'open', 'open', '', '164-revision', '', '', '2011-12-07 13:38:00', '2011-12-07 13:38:00', '', 164, 'http://denis.local/app/2011/12/164-revision.html', 0, 'revision', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_terms`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_terms` (
+  `term_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL DEFAULT '',
+  `slug` varchar(200) NOT NULL DEFAULT '',
+  `term_group` bigint(10) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`term_id`),
+  UNIQUE KEY `slug` (`slug`),
+  KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+
+--
+-- Dumping data for table `wp_terms`
+--
+
+INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
+(1, 'Без рубрики', '%d0%b1%d0%b5%d0%b7-%d1%80%d1%83%d0%b1%d1%80%d0%b8%d0%ba%d0%b8', 0),
+(2, 'Ссылки', '%d1%81%d1%81%d1%8b%d0%bb%d0%ba%d0%b8', 0),
+(3, 'top', 'top', 0),
+(4, 'Architectural exteriors', 'architectural-exteriors', 0),
+(5, 'Architectural interiors', 'architectural-interiors', 0),
+(7, 'Objects', 'objects', 0),
+(8, 'bottom', 'bottom', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_term_relationships`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_term_relationships` (
+  `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `term_taxonomy_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `term_order` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`object_id`,`term_taxonomy_id`),
+  KEY `term_taxonomy_id` (`term_taxonomy_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `wp_term_relationships`
+--
+
+INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
+(1, 1, 0),
+(1, 2, 0),
+(2, 2, 0),
+(3, 2, 0),
+(4, 2, 0),
+(5, 2, 0),
+(6, 2, 0),
+(7, 2, 0),
+(18, 3, 0),
+(20, 3, 0),
+(21, 3, 0),
+(71, 5, 0),
+(76, 8, 0),
+(78, 8, 0),
+(79, 8, 0),
+(80, 1, 0),
+(83, 1, 0),
+(86, 1, 0),
+(91, 6, 0),
+(94, 7, 0),
+(119, 9, 0),
+(121, 9, 0),
+(123, 10, 0),
+(125, 10, 0),
+(127, 11, 0),
+(147, 3, 0),
+(151, 8, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_term_taxonomy`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
+  `term_taxonomy_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `term_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `taxonomy` varchar(32) NOT NULL DEFAULT '',
+  `description` longtext NOT NULL,
+  `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `count` bigint(20) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`term_taxonomy_id`),
+  UNIQUE KEY `term_id_taxonomy` (`term_id`,`taxonomy`),
+  KEY `taxonomy` (`taxonomy`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `wp_term_taxonomy`
+--
+
+INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
+(1, 1, 'category', '', 0, 1),
+(2, 2, 'link_category', '', 0, 7),
+(3, 3, 'nav_menu', '', 0, 4),
+(5, 4, 'rubriki', '', 0, 1),
+(6, 5, 'rubriki', 'Architectural interiors', 0, 1),
+(7, 7, 'rubriki', 'Objects', 0, 1),
+(8, 8, 'nav_menu', '', 0, 4),
+(9, 4, 'portfolio-category', '', 0, 2),
+(10, 5, 'portfolio-category', '', 0, 2),
+(11, 7, 'portfolio-category', '', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_usermeta`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_usermeta` (
+  `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `meta_key` varchar(255) DEFAULT NULL,
+  `meta_value` longtext,
+  PRIMARY KEY (`umeta_id`),
+  KEY `user_id` (`user_id`),
+  KEY `meta_key` (`meta_key`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+
+--
+-- Dumping data for table `wp_usermeta`
+--
+
+INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
+(1, 1, 'first_name', 'Имя'),
+(2, 1, 'last_name', 'Фамилия'),
+(3, 1, 'nickname', 'admin'),
+(4, 1, 'description', ''),
+(5, 1, 'rich_editing', 'true'),
+(6, 1, 'comment_shortcuts', 'false'),
+(7, 1, 'admin_color', 'fresh'),
+(8, 1, 'use_ssl', '0'),
+(9, 1, 'show_admin_bar_front', 'true'),
+(10, 1, 'show_admin_bar_admin', 'false'),
+(11, 1, 'aim', ''),
+(12, 1, 'yim', ''),
+(13, 1, 'jabber', ''),
+(14, 1, 'wp_capabilities', 'a:1:{s:13:"administrator";s:1:"1";}'),
+(15, 1, 'wp_user_level', '10'),
+(16, 1, 'wp_dashboard_quick_press_last_post_id', '157'),
+(17, 1, 'wp_user-settings', 'm5=c&m1=c&m4=c&m7=c&m6=c&m9=c&m10=c&m8=c&m3=c&m2=c&editor=html&m11=c&m12=c&uploader=1&imgsize=full&m13=o'),
+(18, 1, 'wp_user-settings-time', '1323376019'),
+(19, 1, 'closedpostboxes_post', 'a:0:{}'),
+(20, 1, 'metaboxhidden_post', 'a:6:{i:0;s:11:"postexcerpt";i:1;s:13:"trackbacksdiv";i:2;s:16:"commentstatusdiv";i:3;s:11:"commentsdiv";i:4;s:7:"slugdiv";i:5;s:9:"authordiv";}'),
+(21, 1, 'managenav-menuscolumnshidden', 'a:4:{i:0;s:11:"link-target";i:1;s:11:"css-classes";i:2;s:3:"xfn";i:3;s:11:"description";}'),
+(22, 1, 'metaboxhidden_nav-menus', 'a:4:{i:0;s:8:"add-post";i:1;s:13:"add-portfolio";i:2;s:12:"add-post_tag";i:3;s:9:"add-mtype";}'),
+(23, 1, 'meta-box-order_portfolio', 'a:3:{s:4:"side";s:48:"submitdiv,portfolio-categorydiv,tagsdiv-post_tag";s:6:"normal";s:31:"slugdiv,postcustom,postimagediv";s:8:"advanced";s:0:"";}'),
+(24, 1, 'screen_layout_portfolio', '2'),
+(25, 1, 'nav_menu_recently_edited', '8'),
+(26, 1, 'closedpostboxes_cfseven', 'a:0:{}'),
+(27, 1, 'metaboxhidden_cfseven', 'a:0:{}'),
+(28, 1, 'closedpostboxes_page', 'a:0:{}'),
+(29, 1, 'metaboxhidden_page', 'a:5:{i:0;s:16:"commentstatusdiv";i:1;s:11:"commentsdiv";i:2;s:7:"slugdiv";i:3;s:9:"authordiv";i:4;s:12:"revisionsdiv";}'),
+(30, 1, 'icq', 'my_250982927'),
+(31, 1, 'skype', 'my_DenisS'),
+(32, 1, 'twitter', 'Twitter'),
+(33, 1, 'vkontakte', 'ВКонтакте'),
+(34, 1, 'facebook', 'Facebook'),
+(35, 1, 'email', 'my_info@denissopovstudio.com'),
+(36, 1, 'meta-box-order_clients', 'a:3:{s:4:"side";s:36:"submitdiv,pageparentdiv,postimagediv";s:6:"normal";s:96:"postcustom,postexcerpt,trackbacksdiv,commentstatusdiv,commentsdiv,slugdiv,authordiv,revisionsdiv";s:8:"advanced";s:0:"";}'),
+(37, 1, 'screen_layout_clients', '2'),
+(38, 1, 'closedpostboxes_portfolioui', 'a:0:{}'),
+(39, 1, 'metaboxhidden_portfolioui', 'a:1:{i:0;s:7:"slugdiv";}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wp_users`
+--
+
+CREATE TABLE IF NOT EXISTS `wp_users` (
+  `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_login` varchar(60) NOT NULL DEFAULT '',
+  `user_pass` varchar(64) NOT NULL DEFAULT '',
+  `user_nicename` varchar(50) NOT NULL DEFAULT '',
+  `user_email` varchar(100) NOT NULL DEFAULT '',
+  `user_url` varchar(100) NOT NULL DEFAULT '',
+  `user_registered` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `user_activation_key` varchar(60) NOT NULL DEFAULT '',
+  `user_status` int(11) NOT NULL DEFAULT '0',
+  `display_name` varchar(250) NOT NULL DEFAULT '',
+  PRIMARY KEY (`ID`),
+  KEY `user_login_key` (`user_login`),
+  KEY `user_nicename` (`user_nicename`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `wp_users`
+--
+
+INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
+(1, 'admin', '$P$BzEaPJ5dIxN7XyRZ1TIhwP9gR9zy72.', 'admin', 'my_info@denissopovstudio.com', 'http://Сайт', '2011-11-14 16:00:05', '', 0, 'admin');
