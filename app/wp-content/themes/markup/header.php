@@ -19,7 +19,7 @@
     <body>
     <div id="wrapper">
         <div id="logo"><a href="<?php bloginfo('url') ?>"></a></div>
-        <div id="slogan">Best 3d graphics solutions for your buisness</div>
+        <div id="slogan"><?php bloginfo('description'); ?></div>
         <div id="nav-top">
             <?php wp_nav_menu($args = array(
             'menu' => 'Top', //(string) Название выводимого меню (указывается в админке при создании меню, приоритетнее чем указанное местоположение theme_location - если указано, то параметр theme_location игнорируется)

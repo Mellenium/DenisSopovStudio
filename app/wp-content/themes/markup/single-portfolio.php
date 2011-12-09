@@ -41,12 +41,6 @@
             Description </p>
         <p><?php echo get_post_meta($post->ID, "Description", true);?></p>
     </div>
-
-    <div class="contentpaneopen-portfolio-inherit-page">
-        <p class="yellow">
-            Youtube </p>
-        <p><?php echo get_post_meta($post->ID, "Youtube", true);?></p>
-    </div>
         
 </div>
          <?php endwhile; ?>
