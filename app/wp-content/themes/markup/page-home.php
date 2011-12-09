@@ -6,7 +6,7 @@
         <div id="slider" class="nivoSlider">
 
 
-                    <?php query_posts('post_type=portfolio&orderby=rand&showposts=10'); ?>
+                    <?php query_posts('post_type=portfolio&orderby=rand&showposts='.get_option('Slide-show').''); ?>
                     <?php while (have_posts()) : the_post(); ?>
                     <?php
                     //Get the Thumbnail URL

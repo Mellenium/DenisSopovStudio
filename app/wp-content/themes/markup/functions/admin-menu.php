@@ -20,6 +20,7 @@ function omr_create_menu()
          register_setting('omr-settings-group', 'ICQ');
          register_setting('omr-settings-group', 'Skype');
          register_setting('omr-settings-group', 'Email');
+        register_setting('omr-settings-group', 'Slide-show');
     }
 
     function omr_settings_page()
@@ -54,6 +55,12 @@ function omr_create_menu()
                 <tr valign="top">
                     <th scope="row">Email</th>
                     <td><textarea name="Email"><?php echo get_option('Email'); ?></textarea>
+                    </td>
+                </tr>
+
+                <tr valign="top">
+                    <th scope="row">Number of slides</th>
+                    <td><textarea name="Slide-show"><?php echo get_option('Slide-show'); ?></textarea>
                     </td>
                 </tr>
             </table>
