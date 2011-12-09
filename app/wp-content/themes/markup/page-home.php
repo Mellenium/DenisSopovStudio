@@ -152,10 +152,11 @@
         </tr>
     </table>
     
+<div class="simpleForm">	
 <?php echo do_shortcode('[contact-form-7 id="75" title="Contact"]') ?>
 
-
-    <div style="clear:both"></div>
 </div>
+    <div style="clear:both"></div>
+
 
 <?php get_footer(); ?>

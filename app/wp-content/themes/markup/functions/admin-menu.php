@@ -7,8 +7,8 @@ function omr_create_menu()
 
 
     //создать новое меню верхнего уровня
-    add_menu_page('Build Internet Settings', 'Build Internet', 'administrator',
-                  __FILE__, 'omr_settings_page', 'favicon.ico');
+    add_menu_page('Build Internet Settings', 'WP-Options', 'administrator',
+                  __FILE__, 'omr_settings_page');
 
     //вызвать функцию register settings
     add_action('admin_init', 'register_mysettings');
@@ -16,7 +16,7 @@ function omr_create_menu()
     function register_mysettings()
     {
         //регистрируем наши настройки
-        register_setting('omr-settings-group', 'omr_tracking_code');
+        register_setting('omr-settings-group', 'Copyright');
          register_setting('omr-settings-group', 'ICQ');
          register_setting('omr-settings-group', 'Skype');
          register_setting('omr-settings-group', 'Email');
@@ -26,7 +26,7 @@ function omr_create_menu()
     {
         ?>
     <div class="wrap">
-        <h2>Build Internet Options</h2>
+        <h2>WP-Options</h2>
 
         <form method="post" action="options.php">
 
@@ -34,7 +34,7 @@ function omr_create_menu()
             <table class="form-table">
 
                 <tr valign="top">
-                    <th scope="row">Tracking Code</th>
+                    <th scope="row">Copyright</th>
                     <td><textarea name="omr_tracking_code"><?php echo get_option('omr_tracking_code');?></textarea>
                     </td>
                 </tr>
