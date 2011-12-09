@@ -8,8 +8,12 @@
 
                     <?php query_posts('post_type=portfolio&orderby=rand&showposts=10'); ?>
                     <?php while (have_posts()) : the_post(); ?>
+                    <?php
+                    //Get the Thumbnail URL
+                    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 720,405 ), false, '' ); ?>
                         <a href="<?php the_permalink();?>">
-                        <?php the_post_thumbnail(array(750, 422)); ?></a>
+                        <img width="723" height="422" src="<?php echo $src[0]; ?>" alt="" title="<?php the_title(); ?>">
+                        </a>
                         <?php endwhile; ?>
                     <?php wp_reset_query(); ?>
 

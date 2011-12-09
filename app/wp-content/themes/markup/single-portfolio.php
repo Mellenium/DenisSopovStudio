@@ -19,7 +19,7 @@
         <?php $url =  get_post_meta($post->ID, "Youtube", true);?>
         <?php preg_match('%(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);?>
         <?php if (!empty($match)){?>
-           <iframe width="560" height="315" src="http://www.youtube.com/embed/<?php echo $match[1]; ?>" frameborder="0" allowfullscreen></iframe> <?php }
+           <iframe width="853" height="480" src="http://www.youtube.com/embed/<?php echo $match[1]; ?>" frameborder="0" allowfullscreen></iframe> <?php }
         else {
             the_post_thumbnail(); }?>
         <div class="clear"></div>
