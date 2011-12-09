@@ -4,10 +4,16 @@
     <div class="slider-wrapper theme-default">
         <div class="ribbon"></div>
         <div id="slider" class="nivoSlider">
-            <img src="<?php echo bloginfo('template_directory'); ?>/images/banners/art_750.jpg" alt=""/>
-            <img src="<?php echo bloginfo('template_directory'); ?>/images/banners/art_750_3.jpg" alt=""/>
-            <img src="<?php echo bloginfo('template_directory'); ?>/images/banners/art_4_750.jpg" alt=""
-                 title="This is an example of a caption"/>
+
+
+                    <?php query_posts('post_type=portfolio&orderby=rand&showposts=10'); ?>
+                    <?php while (have_posts()) : the_post(); ?>
+                        <a href="<?php the_permalink();?>">
+                        <?php the_post_thumbnail(array(750, 422)); ?></a>
+                        <?php endwhile; ?>
+                    <?php wp_reset_query(); ?>
+
+            
         </div>
         <div id="htmlcaption" class="nivo-html-caption">
         </div>
