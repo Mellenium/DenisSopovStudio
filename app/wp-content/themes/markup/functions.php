@@ -62,48 +62,20 @@ add_action('admin_menu', 'remove_menus');
 
 
 
-add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
 
 
 
-/* Do something with the data entered */
-add_action( 'save_post', 'myplugin_save_postdata' );
 
-/* Adds a box to the main column on the Post and Page edit screens */
-function myplugin_add_custom_box() {
-    add_meta_box(
-        'myplugin_sectionid',
-        __( 'My Post Section Title', 'myplugin_textdomain' ),
-        'myplugin_inner_custom_box',
-        'portfolio'
-    );
-    add_meta_box(
-        'myplugin_sectionid',
-        __( 'My Post Section Title', 'myplugin_textdomain' ),
-        'myplugin_inner_custom_box',
-        'client'
-    );
-}
 
-/* Prints the box content */
-function myplugin_inner_custom_box( $post ) {
 
-  // Use nonce for verification
-  wp_nonce_field( plugin_basename( __FILE__ ), 'myplugin_noncename' );
 
-  // The actual fields for data entry
-  echo '<label for="myplugin_new_field">';
-       _e("Description for this field", 'myplugin_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" value="" size="25" />';
-}
 
-/* When the post is saved, saves our custom data */
-function myplugin_save_postdata( $post_id ) {
-  // verify if this is an auto save routine.
-  // If it is our form has not been submitted, so we dont want to do anything
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-      return;
+add_theme_support('post-thumbnails');
+
+include "functions/meta-portfolio.php";
+include "functions/type-portfolio.php";
+include "functions/meta-clients.php";
+include "functions/type-clients.php";
 
   // verify this came from the our screen and with proper authorization,
   // because save_post can be triggered at other times
