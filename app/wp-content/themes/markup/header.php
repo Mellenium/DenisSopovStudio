@@ -15,6 +15,7 @@
             });
         });
     </script>
+
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/zoom.js"></script>
     <body>
     <div id="wrapper">

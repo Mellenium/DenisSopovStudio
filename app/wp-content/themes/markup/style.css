@@ -138,12 +138,16 @@ a:link, a:visited {
     display: block;
     width: 109px;
     height: 28px;
-/*    background: url(../markup/images/bg/nav-top-button.png) 0px 43px; */
+/*     */
     margin-right: -6px;
     text-decoration: none;
     text-align: center;
     padding-top: 14px;
-	color:blue;
+	color:yellow;
+}
+
+#nav-top ul li.current_page_item a{
+	background: url(../markup/images/bg/nav-top-button.png) 0px 43px;
 }
 
 #nav-top ul li #current a {
