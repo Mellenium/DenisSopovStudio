@@ -18,7 +18,7 @@
 
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/zoom.js"></script>
     <body>
-    <div id="wrapper">
+    <div id="wrapper" <?php body_class(); ?>>
         <div id="logo"><a href="<?php bloginfo('url') ?>"></a></div>
         <div id="slogan"><?php bloginfo('description'); ?></div>
         <div id="nav-top">

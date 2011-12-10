@@ -63,7 +63,14 @@ a:link, a:visited {
     width: 1004px;
     position: relative;
     margin: auto;
-    background: url(../markup/images/bg/bg-blue.png) no-repeat center top;
+}
+
+div.page {
+	 background: url(../markup/images/bg/bg-blue.png) no-repeat center top;
+}
+
+div.home{
+	 background: url(../markup/images/bg/index-bg.png) no-repeat center top;
 }
 
 #logo {
@@ -763,9 +770,6 @@ td.contentheading-portfolio-inherit-page {
     background: none;
 }
 
-#wrapper {
-    background: url(../markup/images/bg/index-bg.png) no-repeat center top;
-}
 
 #sliderr {
     width: 750px;

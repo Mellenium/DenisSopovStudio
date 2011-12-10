@@ -132,3 +132,20 @@ function myplugin_save_postdata( $post_id ) {
   // probably using add_post_meta(), update_post_meta(), or
   // a custom table (see Further Reading section below)
 }
+
+add_filter('body_class','top_level_parent_id_body_class');
+function top_level_parent_id_body_class($classes) {
+    global $wpdb, $post;
+    if (is_page()) {
+        if ($post->post_parent)  {
+            $ancestors=get_post_ancestors($post->ID);
+            $root=count($ancestors)-1;
+            $parent = $ancestors[$root];
+        } else {
+            $parent = $post->ID;
+        }
+        $classes[] = 'top-level-parent-pageid-' . $parent;
+    }
+    return $classes;
+}
+
