@@ -3,35 +3,20 @@ add_action('init', 'custom_posttypes');
 
 function custom_posttypes()
 {
-    
-  $eventlabels = array(
-    'name' => 'Наши работы',
-    'singular_name' => 'Работа',
-    'add_new' => 'Добавить новую',
-    'add_new_item' => 'Добавить работу',
-    'edit_item' => 'Изменить работу',
-    'new_item' => 'Новая работа',
-    'view_item' => 'Просмотреть работу',
-    'search_items' => 'Найти работу',
-    'not_found' =>  'Не найдено ни одной работы',
-    'not_found_in_trash' => 'Не найдено ни одной работы в корзине',
-    'parent_item_colon' => '',
-    'menu_name' => 'Портфолио'
-
-  );
-  $eventargs = array(
-    'labels' => $eventlabels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
-    'query_var' => true,
-    'rewrite' => true,
-    'capability_type' => 'post',
-    'has_archive' => true, 
-    'hierarchical' => false,
-    'menu_position' => null,
-    'supports' => array('title', 'editor', 'thumbnail', 'comments', 'excerpt'));
-
-  register_post_type('portfolio',$eventargs);
+ register_post_type('portfolio', array(	'label' => 'Portfolio','description' => '','public' => true,'show_ui' => true,'show_in_menu' => true,'capability_type' => 'post','hierarchical' => false,'rewrite' => array('slug' => ''),'query_var' => true,'supports' => array('title','custom-fields','thumbnail',),'taxonomies' => array('portfolio-category',),'labels' => array (
+  'name' => 'Portfolio',
+  'singular_name' => 'Portfolio',
+  'menu_name' => 'Portfolio',
+  'add_new' => 'Add Portfolio',
+  'add_new_item' => 'Add New Portfolio',
+  'edit' => 'Edit',
+  'edit_item' => 'Edit Portfolio',
+  'new_item' => 'New Portfolio',
+  'view' => 'View Portfolio',
+  'view_item' => 'View Portfolio',
+  'search_items' => 'Search Portfolio',
+  'not_found' => 'No Portfolio Found',
+  'not_found_in_trash' => 'No Portfolio Found in Trash',
+  'parent' => 'Parent Portfolio',
+),) );
 }

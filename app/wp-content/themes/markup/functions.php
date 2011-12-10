@@ -59,51 +59,14 @@ unset($menu[key($menu)]);
 }
 add_action('admin_menu', 'remove_menus');
 
-
-
-
-
-
-
-
-
-
-
-
 add_theme_support('post-thumbnails');
 
 include "functions/meta-portfolio.php";
 include "functions/type-portfolio.php";
 include "functions/meta-clients.php";
 include "functions/type-clients.php";
+include "functions/taxonomy-portfolio.php";
 
-  // verify this came from the our screen and with proper authorization,
-  // because save_post can be triggered at other times
-
-  if ( !wp_verify_nonce( $_POST['myplugin_noncename'], plugin_basename( __FILE__ ) ) )
-      return;
-
-
-  // Check permissions
-  if ( 'page' == $_POST['post_type'] )
-  {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-        return;
-  }
-  else
-  {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-        return;
-  }
-
-  // OK, we're authenticated: we need to find and save the data
-
-  $mydata = $_POST['myplugin_new_field'];
-
-  // Do something with $mydata
-  // probably using add_post_meta(), update_post_meta(), or
-  // a custom table (see Further Reading section below)
-}
 
 add_filter('body_class','top_level_parent_id_body_class');
 function top_level_parent_id_body_class($classes) {

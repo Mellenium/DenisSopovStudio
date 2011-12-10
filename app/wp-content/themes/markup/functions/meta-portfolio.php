@@ -3,60 +3,44 @@ $prefix = "porfolio_";
 
 $info_box = array(
 	'id' => 'portfolio-meta-box',
-	'title' => 'Информация о работе',
+	'title' => 'Information on the work',
 	'page' => 'portfolio',
 	'context' => 'normal',
 	'priority' => 'high',
 	'fields' => array(
     	array(
-			'name' => 'Адрес сайта',
-			'desc' => 'URL',
-			'id' => $prefix . 'url',
+			'name' => 'Clients',
+			'desc' => '',
+			'id' => 'Clients',
 			'type' => 'text',
 			'std' => ''
 		),
         array(
-			'name' => 'Технологии',
-			'desc' => 'Wordpress, Joomla, CakePHP, ...',
-			'id' => $prefix . 'frameworks',
+			'name' => 'Description',
+			'desc' => '',
+			'id' => 'Description',
 			'type' => 'text',
-			'std' => 'Wordpress'
+			'std' => ''
 		),
 		array(
-			'name' => 'Дата ',
-			'desc' => 'Дата сдачи (YY-MM-DD)',
-			'id' => $prefix . 'date',
-			'type' => 'datepicker',
-			'std' => date('Y-m-d')
+			'name' => 'Technologies ',
+			'desc' => '',
+			'id' => 'Technologies',
+			'type' => 'text',
+			'std' => ''
+		),
+
+        array(
+			'name' => 'Youtube ',
+			'desc' => '',
+			'id' => 'Youtube',
+			'type' => 'text',
+			'std' => ''
 		)
-        
 	)
 );
 
-function get_videos() {
-    global $post, $prefix;
-    $videos = array();
-    $number = 0;
-    $delta = 0;
-    $count = get_post_meta($post->ID, $prefix . 'event_video_count', true)+1;
-    do {
-        $number++;
-        $meta = get_post_meta($post->ID, $prefix . 'event_video_'.$number, true);
-//        if(!$meta) {
-//            $delta++;
-//            continue;
-//        }
-        $videos[] = array(
-			'name' => 'Видео #'.($number-$delta),
-			'desc' => 'Vimeo Video Id',
-			'id' => $prefix . 'event_video_'.($number-$delta),
-			'type' => 'text',
-			'std' => $meta
-		);
-    } while($number < $count);
 
-    return $videos;
-}
 
 add_action('admin_menu', 'event_add_box');
 
@@ -64,121 +48,16 @@ add_action('admin_menu', 'event_add_box');
 function event_add_box() {
     global $info_box;
 
-    $video_box = array(
-        'id' => 'video-meta-box',
-        'title' => 'Видео',
-        'page' => 'portfolio',
-        'context' => 'normal',
-        'priority' => 'high',
-        'fields' => get_videos()
-    );
+
 
     $meta_box = $info_box;
 	add_meta_box($meta_box['id'], $meta_box['title'], 'event_show_box_info', $meta_box['page'], $meta_box['context'], $meta_box['priority']);
 
-    $meta_box = $video_box;
-	add_meta_box($meta_box['id'], $meta_box['title'], 'event_show_box_video', $meta_box['page'], $meta_box['context'], $meta_box['priority']);
+
 }
 
-function event_show_box_video() {
-    global $post, $prefix;
 
-    $videos = get_videos();
-    $nonce = 'event_meta_box_video_nonce';
-    $count = sizeof($videos);
 
-	// Use nonce for verification
-	echo '<input type="hidden" name="'.$nonce.'" value="', wp_create_nonce(basename(__FILE__)), '" />';
-    echo '<input type="hidden" id="event_video_count" value="'.$count.'" name="'.$prefix . 'event_video_count" value="'.$count.'" />';
-?>
-<style>
-    .vimeo-description {
-
-    }
-    .vimeo-description strong {
-        color: #f00;
-    }
-</style>
-<script>
-function add_vimeo_description(vimeo_descriptions) {
-    if(vimeo_descriptions.length) {
-        var vimeo = vimeo_descriptions[0];
-        jQuery('#vimeo-'+vimeo.id).find('.vimeo-description').remove();
-        jQuery('#vimeo-'+vimeo.id).append('<div class="vimeo-description"><h4>'+vimeo.title+'</h4><img src="'+vimeo.thumbnail_small+'"></div>');
-        jQuery('#vimeo-'+vimeo.id).find('.vimeo-thumb').val(vimeo.thumbnail_small);
-    }
-}
-function update_vimeo(vimeo_id) {
-    if(vimeo_id) {
-        var url = 'http://vimeo.com/api/v2/video/'+vimeo_id+'.json?callback=add_vimeo_description';
-        jQuery.getScript(url);
-    }
-}
-jQuery(function($){
-    $('#videos .vimeo').each(function(){
-        update_vimeo($(this).val());
-    })
-    $('#videos input').live('keyup', function(e){
-        var $tr = $('#videos tr');
-        $tr.removeClass('active')
-        var count = $tr.length;
-        var $wrapper = $(this).parents('tr')
-        $wrapper.addClass('active');
-        var old_val = $(this).val();
-        var val = parseInt(old_val.replace(/[^0-9]/gi,''));
-        if (isNaN(val)) val = '';
-        if(old_val != val) $(this).val(val);
-        var empty = !val;
-        if(empty) {
-            if(e.which in {46:1, 8:1} && count>1) {
-                $('#videos .active').next().find('input').focus();
-                $(this).parents('tr').remove();
-            }
-        } else {
-            $wrapper.find('td').attr('id', 'vimeo-'+val);
-            $wrapper.find('.vimeo-description').html('<strong>video not found</strong>');
-            update_vimeo(val);
-            if(!$('#videos .active').next().length) {
-                var $newline = $('#videos tr:last').clone();
-                var $input = $newline.find('input');
-                $input.val('');
-                var name = $input.attr('name');
-                var id = parseInt(name.replace(/([^0-9])/gi, ''));
-                var new_id = id+1;
-                name = name.replace(/([0-9])/gi, '') + new_id;
-                $input.attr('name', name);
-                $input.attr('id', name);
-                var $label = $newline.find('label');
-                var text = $label.text();
-                text = text.replace(id, new_id);
-                $label.text(text);
-                var for_attr = $label.attr('for');
-                for_attr.replace(id, new_id);
-                $label.attr('for', for_attr);
-                $('#videos').append($newline);
-                $('#event_video_count').val(new_id);
-            }
-        }
-    })
-})
-</script>
-<?php
-	echo '<table id="videos" class="form-table">';
-
-	foreach ($videos as $field) {
-		$meta = get_post_meta($post->ID, $field['id'], true);
-
-		echo
-            '<tr>',
-            '<th style="width:20%"><label for="', $field['id'], '">', $field['name'], '</label></th>',
-            '<td id="', $meta ? 'vimeo-'.$meta : '','">',
-                '<input type="hidden" class="vimeo-thumb" name="thumb-', $field['id'], '" id="thumb-', $field['id'], '"/>',
-                '<input placeholder="',$field['desc'],'" class="vimeo" autocomplete="off" type="text" name="', $field['id'], '" id="', $field['id'], '" value="', $meta ? $meta : $field['std'], '" size="30" style="width:97%" />',
-            '<div class="vimeo-description"></div></td></tr>';
-    }
-
-	echo '</table>';
-}
 
 function event_show_box_info() {
     global $info_box;
