@@ -69,6 +69,10 @@ div.page {
 	 background: url(../markup/images/bg/bg-blue.png) no-repeat center top;
 }
 
+div.single {
+	 background: url(../markup/images/bg/bg-blue.png) no-repeat center top;
+}
+
 div.home{
 	 background: url(../markup/images/bg/index-bg.png) no-repeat center top;
 }
