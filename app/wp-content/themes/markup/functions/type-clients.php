@@ -1,5 +1,5 @@
 <?php
-add_action('init', 'custom_post_types_clients');
+//add_action('init', 'custom_post_types_clients');
 
 function custom_post_types_clients()
 {
