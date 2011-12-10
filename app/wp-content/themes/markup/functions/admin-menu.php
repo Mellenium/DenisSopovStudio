@@ -10,7 +10,7 @@ function register_my_custom_submenu_page() {
 function my_custom_submenu_page_callback() {
 	?>
     <div class="wrap">
-        <h2>WP-Options</h2>
+        <h2>Настройка темы</h2>
 
         <form method="post" action="options.php">
 
