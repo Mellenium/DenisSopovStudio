@@ -4,7 +4,7 @@
         <ul id="mainlevel">
 
             <?php
-            $terms = get_terms("portfolio-category", "orderby=id&order=DESC");
+            $terms = get_terms("portfolio-category", "orderby=id&order=ASC");
             $count = count($terms);
             if ($count > 0) {
                 foreach ($terms as $term) {
