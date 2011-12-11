@@ -4,14 +4,15 @@
             <?php if (empty($_GET["portfolio-category"])) {
             echo "Portfolio";
         } else {
-            echo $category;
+            $term = get_term_by('slug', $_GET["portfolio-category"], 'portfolio-category');
+            echo $term->name;
         } ?></div>
         <div style="clear:both"></div>
     </div>
     <div id="content-internal-center">
         <ul id="mainlevel">
 
-            <?php query_posts('post_type=portfolio&portfolio-category=' . $category . ''); ?>
+            <?php query_posts('post_type=portfolio&portfolio-category=' . $_GET["portfolio-category"] . ''); ?>
 
             <?php while (have_posts()) : the_post(); ?>
 
