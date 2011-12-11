@@ -29,24 +29,26 @@
     </div>
 </div>
 
+        <?php if($option = get_post_meta($post->ID, "Technologies", true)): ?>
         <div class="contentpaneopen-portfolio-inherit-page">
-            <p class="yellow">
-                Technologies </p>
-
-            <p><?php echo get_post_meta($post->ID, "Technologies", true);?></p></div>
-
-        <div class="contentpaneopen-portfolio-inherit-page">
-            <p class="yellow">
-                Client </p>
-
-            <p><?php echo get_post_meta($post->ID, "Clients", true);?></p></div>
-
-        <div class="contentpaneopen-portfolio-inherit-page">
-            <p class="yellow">
-                Description </p>
-
-            <p><?php echo get_post_meta($post->ID, "Description", true);?></p>
+            <p class="yellow">Technologies</p>
+            <p><?php echo $option ?></p>
         </div>
+        <?php endif; ?>
+
+        <?php if($option = get_post_meta($post->ID, "Clients", true)): ?>
+        <div class="contentpaneopen-portfolio-inherit-page">
+            <p class="yellow">Client</p>
+            <p><?php echo $option ?></p>
+        </div>
+        <?php endif; ?>
+
+        <?php if($option = get_post_meta($post->ID, "Description", true)): ?>
+        <div class="contentpaneopen-portfolio-inherit-page">
+            <p class="yellow">Description</p>
+            <p><?php echo $option ?></p>
+        </div>
+        <?php endif; ?>
 
 </div>
          <?php endwhile; ?>
