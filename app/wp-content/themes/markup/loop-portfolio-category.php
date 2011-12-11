@@ -3,7 +3,8 @@
     <div id="our-works-center">
         <ul id="mainlevel">
 
-            <?php $terms = get_terms("portfolio-category");
+            <?php
+            $terms = get_terms("portfolio-category", "orderby=id&order=DESC");
             $count = count($terms);
             if ($count > 0) {
                 foreach ($terms as $term) {
