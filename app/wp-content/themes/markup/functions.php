@@ -1,8 +1,14 @@
 <?php
-//die('some');
-/*if (function_exists('add_theme_support')) {
- add_theme_support('menus');
-}*/
+
+function the_thumb($width=200, $height=0) {
+    global $post;
+    $w=''; if($width) $w='&w='.$width;
+    $h=''; if($height) $w='&h='.$height;
+?>
+    <img src="<?php echo site_url('/')?>thumb.php?zc=0<?php echo $w?><?php echo $h?>&src=<?php $picture = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); echo $picture[0]; ?>">
+<?php
+}
+
 add_theme_support( 'menus' );
 
 register_nav_menus(array(
