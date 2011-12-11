@@ -31,7 +31,8 @@
             $terms = get_terms("portfolio-category", "orderby=id&order=ASC");
             $count = count($terms);
             if ($count > 0) {
-                foreach ($terms as $term) {
+                foreach ($terms as $term)
+                if($term->slug!='slider'){
                     ?>
                    
                     <li><a
