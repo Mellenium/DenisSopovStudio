@@ -12,7 +12,7 @@
                     //Get the Thumbnail URL
                     $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 720,405 ), false, '' ); ?>
                         <a href="<?php the_permalink();?>">
-                        <img width="723" height="422" src="<?php echo $src[0]; ?>" alt="" title="<?php the_title(); ?>">
+                        <img width="723" height="422" src="<?php echo $src[0]; ?>" alt="">
                         </a>
                         <?php endwhile; ?>
                     <?php wp_reset_query(); ?>
