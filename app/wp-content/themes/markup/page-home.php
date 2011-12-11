@@ -38,7 +38,7 @@
                    
                     <li><a
                         href="<?php the_permalink();?>portfolio/?portfolio-category=<?php echo $term->slug; ?>">
-                    <?php query_posts('post_type=portfolio&portfolio-category=' . $term->slug . '&posts_per_page=1'); ?>
+                    <?php query_posts('post_type=portfolio&portfolio-category=' . $term->slug . '&posts_per_page=1&orderby=date&order=ASC'); ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <?php the_post_thumbnail(array(295, 172)); ?>
                         <?php endwhile; ?>
