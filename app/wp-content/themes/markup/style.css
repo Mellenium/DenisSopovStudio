@@ -143,34 +143,20 @@ div.home{
     text-decoration: none;
     text-align: center;
     padding-top: 14px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #nav-top ul li a:hover {
-    display: block;
-    width: 109px;
-    height: 28px;
-/*     */
-    margin-right: -6px;
-    text-decoration: none;
-    text-align: center;
-    padding-top: 14px;
-	color:yellow;
+    background: url(../markup/images/bg/nav-top-button.png) 0 -215px;
 }
 
 #nav-top ul li.current_page_item a{
-	background: url(../markup/images/bg/nav-top-button.png) 0px 43px;
+	background: url(../markup/images/bg/nav-top-button.png) 0px -86px;
 }
 
-#nav-top ul li #current a {
-    background: url(../markup/images/bg/nav-top-button.png) 0 -86px;
-}
-
-#nav-top ul li #current a:hover {
+#nav-top ul li.current_page_item a:hover{
     background: url(../markup/images/bg/nav-top-button.png) 0 -129px;
-}
-
-#menu-item menu-item-type-post_type menu-item-object-page menu-item-21 a:active {
-    background: url(../markup/images/bg/nav-top-button.png) 0px 43px;
 }
 
 #our-works {
