@@ -5,18 +5,16 @@
         <div class="ribbon"></div>
         <div id="slider" class="nivoSlider">
 
-
-                    <?php query_posts('post_type=portfolio&orderby=rand&showposts='.get_option('Slide-show').''); ?>
-                    <?php while (have_posts()) : the_post(); ?>
-                    <?php
-                    //Get the Thumbnail URL
-                    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 720,405 ), false, '' ); ?>
-                        <a href="<?php the_permalink();?>">
-                        <img width="723" height="422" src="<?php echo $src[0]; ?>" alt="">
-                        </a>
-                        <?php endwhile; ?>
-                    <?php wp_reset_query(); ?>
-
+            <?php query_posts('post_type=portfolio&orderby=rand&showposts='.get_option('Slide-show').'&portfolio-category=slider'); ?>
+            <?php while (have_posts()) : the_post(); ?>
+            <?php
+            //Get the Thumbnail URL
+            $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 720,405 ), false, '' ); ?>
+                <a href="<?php the_permalink();?>">
+                <img width="723" height="422" src="<?php echo $src[0]; ?>" alt="">
+                </a>
+                <?php endwhile; ?>
+            <?php wp_reset_query(); ?>
             
         </div>
         <div id="htmlcaption" class="nivo-html-caption">
