@@ -58,7 +58,7 @@
     <div id="content-internal-center">
         <ul id="mainlevel">
 
-            <?php query_posts('post_type=portfolio&posts_per_page=3&portfolio-category=' . $category . ''); ?>
+            <?php query_posts('post_type=portfolio&orderby=rand&posts_per_page=3&portfolio-category=' . $category . ''); ?>
 
             <?php while (have_posts()) : the_post(); ?>
 <!--            <li><a href="--><?php //the_permalink();?><!--portfolio/?portfolio-category=--><?php //echo $term->slug; ?><!--&portfolio-category-name=--><?php //echo $term->name; ?><!--">-->
