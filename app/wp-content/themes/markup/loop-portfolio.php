@@ -12,7 +12,7 @@
     <div id="content-internal-center">
         <ul id="mainlevel">
 
-            <?php query_posts('post_type=portfolio&portfolio-category=' . $_GET["portfolio-category"] . ''); ?>
+            <?php query_posts('orderby=date&order=ASC&post_type=portfolio&portfolio-category=' . $_GET["portfolio-category"] . ''); ?>
 
             <?php while (have_posts()) : the_post(); ?>
 
