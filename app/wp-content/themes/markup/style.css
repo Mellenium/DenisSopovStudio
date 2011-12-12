@@ -19,9 +19,8 @@ img {
 }
 
 html {
-    background-color: #000000;
     width: 100%;
-    background: url(../markup/images/bg/bg.jpg) repeat center top;
+    background: #000000 url(../markup/images/bg/bg.jpg) repeat center top;
 }
 
 table {
@@ -279,11 +278,8 @@ a.readon-bottom:hover {
 #content-internal-no-js ul {
     list-style: none;
     width: 938px;
-    padding-left: 17px;
     margin: auto;
-    background: url(../markup/images/bg/our-works-bg.png) repeat;
     position: relative;
-    top: -22px;
 }
 
 #content-internal ul {
@@ -308,9 +304,7 @@ a.readon-bottom:hover {
 #content-internal-no-js ul li {
     float: left;
     display: block;
-    padding: 0 17px 17px 0;
     width: 295px;
-    height: 172px;
     position: relative;
 }
 
@@ -539,6 +533,33 @@ input.submit:hover {
     font-size: 14px;
 }
 
+#blog-clients {
+    overflow: hidden;
+}
+
+#blog-clients li a {
+    text-decoration: none !important;
+}
+
+#blog-clients li address {
+    margin-top: 10px;
+    font-style: normal;
+    font-size: 10px;
+    text-align: right;
+    color: #333;
+}
+
+#blog-clients h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+}
+
+#blog-clients li {
+    margin-bottom: 20px;
+}
+
 .blog-clients {
     background: url(../markup/images/bg/our-works-center-bg.png) repeat-y;
     border-radius: 0px 0px 10px 10px;
@@ -721,7 +742,6 @@ td.contentheading-portfolio-inherit-page {
 }
 
 #footer {
-    background: url(../markup/images/bg/footer-bg.png) no-repeat;
     width: 934px;
     height: 37px;
     padding: 12px 26px 0 31px;
@@ -747,13 +767,17 @@ td.contentheading-portfolio-inherit-page {
     background: url(../markup/images/bg/footer-menu-separator.jpg) no-repeat left center;
 }
 
+#footer-menu ul li:first-child {
+    background: none;
+}
+
 #footer-menu ul li a {
-    color: #ffffff;
-    text-decoration: underline;
+    color: #ccc;
+    text-decoration: none;
 }
 
 #footer-menu ul li a:hover {
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 #footer-menu ul li.item1 {
@@ -786,7 +810,6 @@ img#pause78 {
 #our-works {
     display: block;
     width: 968px;
-    height: 558px;
     margin: auto;
 }
 
@@ -1205,4 +1228,8 @@ margin-bottom: 20px;
 }
 div.topblock .image img {
 border: 1px solid white;
+}
+
+.yellow {
+    color: orange;
 }

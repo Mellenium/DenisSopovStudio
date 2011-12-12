@@ -45,17 +45,7 @@
         <div style="clear:both;"></div>
     </div>
 </div>
-<div id="content-internal">
-    <div id="content-internal-header">
-        <div id="content-internal-header-title"></div>
-        <div style="clear:both"></div>
-    </div>
 
-    <div id="content-internal-center">
-        <div style="clear:both;">
-        </div>
-    </div>
-</div>
 <div id="content">
     <table class="blog-bottom">
 
