@@ -279,11 +279,9 @@ a.readon-bottom:hover {
 #content-internal-no-js ul {
     list-style: none;
     width: 938px;
-    padding-left: 17px;
     margin: auto;
     background: url(../markup/images/bg/our-works-bg.png) repeat;
     position: relative;
-    top: -22px;
 }
 
 #content-internal ul {
@@ -308,9 +306,7 @@ a.readon-bottom:hover {
 #content-internal-no-js ul li {
     float: left;
     display: block;
-    padding: 0 17px 17px 0;
     width: 295px;
-    height: 172px;
     position: relative;
 }
 
@@ -537,6 +533,28 @@ input.submit:hover {
 
 .contacts {
     font-size: 14px;
+}
+
+#blog-clients li a {
+    text-decoration: none !important;
+}
+
+#blog-clients li address {
+    margin-top: 10px;
+    font-style: normal;
+    font-size: 10px;
+    text-align: right;
+    color: #333;
+}
+
+#blog-clients h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#blog-clients li {
+    margin-bottom: 20px;
 }
 
 .blog-clients {
