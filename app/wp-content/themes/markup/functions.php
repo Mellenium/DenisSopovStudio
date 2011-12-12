@@ -1,8 +1,14 @@
 <?php
-//die('some');
-/*if (function_exists('add_theme_support')) {
- add_theme_support('menus');
-}*/
+
+function the_thumb($width=200, $height=0) {
+    global $post;
+    $w=''; if($width) $w='&w='.$width;
+    $h=''; if($height) $w='&h='.$height;
+?>
+    <img src="<?php echo site_url('/')?>thumb.php?zc=0<?php echo $w?><?php echo $h?>&src=<?php $picture = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full'); echo $picture[0]; ?>">
+<?php
+}
+
 add_theme_support( 'menus' );
 
 register_nav_menus(array(
@@ -59,76 +65,28 @@ unset($menu[key($menu)]);
 }
 add_action('admin_menu', 'remove_menus');
 
+add_theme_support('post-thumbnails');
+
+include "functions/meta-portfolio.php";
+include "functions/type-portfolio.php";
+include "functions/meta-clients.php";
+include "functions/type-clients.php";
+include "functions/taxonomy-portfolio.php";
 
 
-
-add_action( 'add_meta_boxes', 'myplugin_add_custom_box' );
-
-
-
-/* Do something with the data entered */
-add_action( 'save_post', 'myplugin_save_postdata' );
-
-/* Adds a box to the main column on the Post and Page edit screens */
-function myplugin_add_custom_box() {
-    add_meta_box(
-        'myplugin_sectionid',
-        __( 'My Post Section Title', 'myplugin_textdomain' ),
-        'myplugin_inner_custom_box',
-        'portfolio'
-    );
-    add_meta_box(
-        'myplugin_sectionid',
-        __( 'My Post Section Title', 'myplugin_textdomain' ),
-        'myplugin_inner_custom_box',
-        'client'
-    );
+add_filter('body_class','top_level_parent_id_body_class');
+function top_level_parent_id_body_class($classes) {
+    global $wpdb, $post;
+    if (is_page()) {
+        if ($post->post_parent)  {
+            $ancestors=get_post_ancestors($post->ID);
+            $root=count($ancestors)-1;
+            $parent = $ancestors[$root];
+        } else {
+            $parent = $post->ID;
+        }
+        $classes[] = 'top-level-parent-pageid-' . $parent;
+    }
+    return $classes;
 }
 
-/* Prints the box content */
-function myplugin_inner_custom_box( $post ) {
-
-  // Use nonce for verification
-  wp_nonce_field( plugin_basename( __FILE__ ), 'myplugin_noncename' );
-
-  // The actual fields for data entry
-  echo '<label for="myplugin_new_field">';
-       _e("Description for this field", 'myplugin_textdomain' );
-  echo '</label> ';
-  echo '<input type="text" id="myplugin_new_field" name="myplugin_new_field" value="" size="25" />';
-}
-
-/* When the post is saved, saves our custom data */
-function myplugin_save_postdata( $post_id ) {
-  // verify if this is an auto save routine.
-  // If it is our form has not been submitted, so we dont want to do anything
-  if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
-      return;
-
-  // verify this came from the our screen and with proper authorization,
-  // because save_post can be triggered at other times
-
-  if ( !wp_verify_nonce( $_POST['myplugin_noncename'], plugin_basename( __FILE__ ) ) )
-      return;
-
-
-  // Check permissions
-  if ( 'page' == $_POST['post_type'] )
-  {
-    if ( !current_user_can( 'edit_page', $post_id ) )
-        return;
-  }
-  else
-  {
-    if ( !current_user_can( 'edit_post', $post_id ) )
-        return;
-  }
-
-  // OK, we're authenticated: we need to find and save the data
-
-  $mydata = $_POST['myplugin_new_field'];
-
-  // Do something with $mydata
-  // probably using add_post_meta(), update_post_meta(), or
-  // a custom table (see Further Reading section below)
-}

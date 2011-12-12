@@ -5,18 +5,11 @@
         <div class="ribbon"></div>
         <div id="slider" class="nivoSlider">
 
-
-                    <?php query_posts('post_type=portfolio&orderby=rand&showposts='.get_option('Slide-show').''); ?>
-                    <?php while (have_posts()) : the_post(); ?>
-                    <?php
-                    //Get the Thumbnail URL
-                    $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 720,405 ), false, '' ); ?>
-                        <a href="<?php the_permalink();?>">
-                        <img width="723" height="422" src="<?php echo $src[0]; ?>" alt="" title="<?php the_title(); ?>">
-                        </a>
-                        <?php endwhile; ?>
-                    <?php wp_reset_query(); ?>
-
+            <?php query_posts('post_type=portfolio&orderby=rand&showposts='.get_option('Slide-show').'&portfolio-category=slider'); ?>
+            <?php while (have_posts()) : the_post(); ?>
+                <a href="<?php the_permalink();?>"><?php the_thumb(750); ?></a>
+            <?php endwhile; ?>
+            <?php wp_reset_query(); ?>
             
         </div>
         <div id="htmlcaption" class="nivo-html-caption">
@@ -29,15 +22,17 @@
     <div id="our-works-center">
         <ul id="mainlevel">
 
-            <?php $terms = get_terms("portfolio-category");
+            <?php
+            $terms = get_terms("portfolio-category", "orderby=id&order=ASC");
             $count = count($terms);
             if ($count > 0) {
-                foreach ($terms as $term) {
+                foreach ($terms as $term)
+                if($term->slug!='slider'){
                     ?>
                    
                     <li><a
                         href="<?php the_permalink();?>portfolio/?portfolio-category=<?php echo $term->slug; ?>">
-                    <?php query_posts('post_type=portfolio&portfolio-category=' . $term->slug . '&posts_per_page=1'); ?>
+                    <?php query_posts('post_type=portfolio&portfolio-category=' . $term->slug . '&posts_per_page=1&orderby=date&order=ASC'); ?>
                     <?php while (have_posts()) : the_post(); ?>
                         <?php the_post_thumbnail(array(295, 172)); ?>
                         <?php endwhile; ?>
