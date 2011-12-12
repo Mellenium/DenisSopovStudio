@@ -17,13 +17,20 @@
 
 <div class="topblock">
     <div class="image">
-        <?php $url = get_post_meta($post->ID, "Youtube", true);?>
-        <?php preg_match('%(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);?>
-        <?php if (!empty($match)) { ?>
-        <iframe width="853" height="480" src="http://www.youtube.com/embed/<?php echo $match[1]; ?>" frameborder="0"
+        <?php
+            $youtube = false;
+            $vimeo = false;
+            if($url = get_post_meta($post->ID, "Youtube", true)) {
+                preg_match('%(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $youtube);
+            } elseif($url = get_post_meta($post->ID, "Vimeo", true)) {
+                preg_match('%http:\/\/(www.vimeo|vimeo)\.com(\/|\/clip:)(\d+)(.*?)%i', $url, $vimeo);
+            }
+    if (!empty($youtube)) { ?>
+        <iframe width="853" height="480" src="http://www.youtube.com/embed/<?php echo $youtube[1]; ?>?autoplay=1" frameborder="0"
                 allowfullscreen></iframe> <?php
-    }
-    else {
+    } elseif($vimeo) { ?>
+        <iframe src="http://player.vimeo.com/video/<?php echo $vimeo[3]; ?>?portrait=0&amp;autoplay=1" width="853" height="480" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    <?php } else {
         the_post_thumbnail();
     }?>
         <div class="clear"></div>

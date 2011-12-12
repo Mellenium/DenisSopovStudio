@@ -15,13 +15,9 @@
                             <?php while (have_posts()) : the_post();  ?>
                                 <li>
                                     <p style="text-align: center;" class="yellow"><?php the_title();?></p>
-                                    <?php echo the_post_thumbnail(); ?>
-
+                                    <?php the_thumb(280, 200); ?>
                                     <p style="text-align: center;">
-
-                                    <p style="text-align: center;"><a
-                                            href='http://<?php echo get_post_meta($post->ID, "URL_Clients", true);?>'> <?php echo get_post_meta($post->ID, "URL_Clients", true);?></a>
-                                    </p>
+                                        <a href='http://<?php echo get_post_meta($post->ID, "URL_Clients", true);?>'><?php echo get_post_meta($post->ID, "URL_Clients", true);?></a>
                                     </p>
                                 </li>
                                 <?php endwhile; ?>
