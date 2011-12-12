@@ -8,6 +8,7 @@
     <div id="content-internal-header">
     <div id="content-internal-header-title">
         <?php while (have_posts()) : the_post(); ?>
+        <?php $term = wp_get_object_terms( $post->ID, 'portfolio-category'); ?>
         <h2 class="contentheading flexicontent">
             <?php the_title(); ?></h2>
 </div>
@@ -66,7 +67,8 @@
     <div id="content-internal-center">
         <ul id="mainlevel">
 
-            <?php query_posts('post_type=portfolio&orderby=rand&posts_per_page=3&portfolio-category='); ?>
+            <?php 
+            query_posts('post__not_in[]='.$post->ID.'&post_type=portfolio&orderby=rand&posts_per_page=3&portfolio-category='.$term[0]->slug); ?>
 
             <?php while (have_posts()) : the_post(); ?>
             <li><a href="<?php the_permalink() ?>" class="mainlevel">

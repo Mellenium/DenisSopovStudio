@@ -8,13 +8,18 @@ function register_my_custom_submenu_page() {
 }
 
 function my_custom_submenu_page_callback() {
+    if(isset($_POST['settings'])) {
+        unset($_POST['settings']);
+        foreach($_POST as $option=>$value) {
+            update_option($option, $value);
+        }  
+    }
 	?>
     <div class="wrap">
         <h2>Настройка темы</h2>
 
-        <form method="post" action="options.php">
-
-            <?php settings_fields('omr-settings-group'); ?>
+        <form method="post" action="themes.php?page=my-custom-submenu-page">
+            <input type="hidden" name="settings"> 
             <table class="form-table">
 
                 <tr valign="top">
