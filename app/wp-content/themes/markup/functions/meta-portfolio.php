@@ -36,6 +36,14 @@ $info_box = array(
 			'id' => 'Youtube',
 			'type' => 'text',
 			'std' => ''
+		),
+
+        array(
+			'name' => 'Vimeo ',
+			'desc' => '',
+			'id' => 'Vimeo',
+			'type' => 'text',
+			'std' => ''
 		)
 	)
 );
