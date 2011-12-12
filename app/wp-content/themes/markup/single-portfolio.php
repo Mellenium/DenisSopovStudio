@@ -61,7 +61,7 @@
 
 <div id="content-internal">
     <div id="content-internal-header">
-        <div id="content-internal-header-title">Best works</div>
+        <div id="content-internal-header-title">Other works in this category</div>
         <div style="clear:both"></div>
     </div>
     <div id="content-internal-center">
