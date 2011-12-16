@@ -11,7 +11,7 @@
                 <li>
                     <a href='http://<?php echo get_post_meta($post->ID, "URL_Clients", true);?>'>
                         <h2><?php the_title();?></h2>
-                        <?php the_thumb(0, 150); ?>
+                        <?php the_thumb(150, 150); ?>
                         <address><?php echo get_post_meta($post->ID, "URL_Clients", true);?></address>
                     </a>
                 </li>
