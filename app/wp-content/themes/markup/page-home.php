@@ -1,20 +1,13 @@
 <?php get_header(); ?>
 
-<div id="sliderr">
-    <div class="slider-wrapper theme-default">
-        <div class="ribbon"></div>
-        <div id="slider" class="nivoSlider">
+<div id="slider" class="slider3d">
 
-            <?php query_posts('post_type=portfolio&orderby=rand&showposts='.get_option('Slide-show').'&portfolio-category=slider'); ?>
-            <?php while (have_posts()) : the_post(); ?>
-                <a href="<?php the_permalink();?>"><?php the_thumb(750); ?></a>
-            <?php endwhile; ?>
-            <?php wp_reset_query(); ?>
-            
-        </div>
-        <div id="htmlcaption" class="nivo-html-caption">
-        </div>
-    </div>
+    <?php query_posts('post_type=portfolio&orderby=rand&showposts='.get_option('Slide-show').'&portfolio-category=slider'); ?>
+    <?php while (have_posts()) : the_post(); ?>
+        <a href="<?php the_permalink();?>"><?php the_thumb(750); ?></a>
+    <?php endwhile; ?>
+    <?php wp_reset_query(); ?>
+    
 </div>
 
 <div id="our-works">

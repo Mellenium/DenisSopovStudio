@@ -2,21 +2,17 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb">
 <head>
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.js"></script>
-    <script type="text/javascript"
-            src="<?php bloginfo('template_directory'); ?>/js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript">
-        $(window).load(function() {
-            $('#slider').nivoSlider({
-                controlNav: false
-            });
-        });
-    </script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
+    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/ccslider/ccslider.css" />
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen"/>
+
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/jquery.js"></script>
     <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/zoom.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ccslider/jquery.easing.1.3.min.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ccslider/jquery.ccslider.pack.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/ccslider/demo.js"></script> 
     <body>
     <div id="wrapper" <?php body_class(); ?>>
         <div id="logo"><a href="<?php bloginfo('url') ?>"></a></div>
